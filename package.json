@@ -1,0 +1,21 @@
+{
+  "name": "loom-local",
+  "productName": "Prisma",
+  "version": "0.1.0",
+  "private": true,
+  "license": "PolyForm-Noncommercial-1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "shortcut": "powershell -NoProfile -ExecutionPolicy Bypass -File shortcut.ps1",
+    "test": "node smoke.js",
+    "test:vdo": "electron vdo-test.js",
+    "test:widget": "electron widget-test.js",
+    "test:design": "electron design-test.js",
+    "icon": "electron make-icon.js",
+    "setup:transcription": "powershell -NoProfile -ExecutionPolicy Bypass -File setup-transcription.ps1"
+  },
+  "devDependencies": {
+    "electron": "^44.4.2"
+  }
+}

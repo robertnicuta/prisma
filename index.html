@@ -1,0 +1,527 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><title>Estudio</title><link rel="stylesheet" href="app.css"></head><body>
+<div class="app-shell">
+ <nav class="rail" aria-label="Secciones"><img class="brand-mark" src="brand.svg" alt="Icono del estudio"><button id="navRecord" class="active" data-icon="camera" title="Grabar" aria-label="Grabar" aria-current="page"></button><button id="navTranscript" data-icon="text" title="Transcripciones" aria-label="Transcripciones"></button><button id="navMobile" data-icon="phone" title="Cámara y micro del móvil" aria-label="Conectar móvil"></button><button id="navHelp" class="bottom" data-icon="keyboard" title="Atajos y ayuda" aria-label="Atajos y ayuda"></button></nav>
+ <header class="app-header"><div class="brand-name"><h1 data-brand>Estudio</h1><span>Tu estudio de grabación</span></div><div class="header-actions"><span class="local-badge"><i></i>Todo se queda en tu PC</span><button id="tp">Guion</button><button id="widgetBtn">Widget flotante</button></div></header>
+ <main class="studio">
+  <section class="workspace" aria-label="Estudio de grabación">
+   <div class="workspace-heading"><div><p class="eyebrow">Tu próxima toma</p><h2 id="studioHeading">Dale forma a tu idea.</h2><p id="studioDescription">Prepara tus fuentes. Nosotros ponemos el foco.</p></div><span id="previewQuality" class="preview-badge">1080p · 30 fps</span></div>
+   <div class="preview-card"><div class="preview-topline"><span><i></i>Vista previa</span><span id="previewMode">Pantalla + cámara</span></div><div id="previewShell" class="preview-shell"><canvas id="preview" aria-label="Vista previa de la grabación"></canvas><div id="previewEmpty" class="preview-empty"><img src="brand.svg" alt=""><strong>Todo empieza con una toma.</strong><small>Elige una pantalla o conecta tu cámara.</small></div></div><div class="preview-caption"><span><span data-icon="shield"></span>Esta ventana no aparece en tu vídeo</span><span id="bubbleHint">Arrastra la burbuja para colocarla</span></div></div>
+   <div class="source-strip"><div class="source-pill"><span data-icon="camera"></span><span id="cameraSummary">Sin cámara</span></div><div class="source-pill"><span data-icon="mic"></span><span id="microSummary">Sin micro</span></div></div>
+   <div class="row"><button id="rec" class="primary">Grabar</button><button id="pause" disabled>Pausar</button><button id="discard" class="icon-button danger" disabled title="Descartar grabación" aria-label="Descartar grabación"></button><span class="control-divider"></span><button id="micBtn" class="icon-button" aria-label="Silenciar micro" title="Silenciar micro · Ctrl+Shift+M" aria-pressed="false"></button><button id="zoomBtn" class="icon-button" aria-label="Zoom al cursor" title="Zoom al cursor · Ctrl+Shift+Z"></button><button id="transcribeBtn" class="icon-button" aria-label="Transcribir" title="Transcripción local"></button><span id="status" role="status">Listo</span><span id="mute"></span></div>
+   <div class="shortcut-note"><span><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>R</kbd> para grabar desde cualquier app</span><span>Sincronizado con tu widget</span></div>
+  </section>
+  <aside class="inspector" aria-label="Ajustes de grabación"><div class="inspector-header"><h2>Hazlo a tu manera</h2><p>La misma configuración, aquí y en el widget.</p></div><div class="inspector-tabs" role="tablist" aria-label="Categorías de ajustes"><button class="active" data-panel="sources" role="tab" aria-selected="true">Fuentes</button><button data-panel="appearance" role="tab" aria-selected="false">Aspecto</button><button data-panel="advanced" role="tab" aria-selected="false">Grabación</button></div>
+  <div id="settingsScroll" class="grid">
+   <fieldset data-group="sources"><legend><span data-icon="screen"></span>Qué vas a grabar</legend><label>Modo<select data-k="mode"><option value="both">Pantalla + cámara</option><option value="screen">Solo pantalla</option><option value="cam">Solo cámara</option></select></label><label>Pantalla o ventana<div class="inline-input"><select id="src" data-k="src"></select><button id="refresh" title="Actualizar fuentes" aria-label="Actualizar fuentes" data-icon="refresh"></button></div></label><div class="field-actions"><button id="area">Elegir área</button><button id="areaOff" hidden>Quitar área</button></div></fieldset>
+   <fieldset data-group="sources"><legend><span data-icon="camera"></span>Tu cámara</legend><label>Fuente de vídeo<select id="cam" data-k="cam"></select></label><div class="check-row"><label><input type="checkbox" data-k="camShow">Mostrar cámara</label><label><input type="checkbox" data-k="mirror">Espejo</label></div></fieldset>
+   <fieldset data-group="sources"><legend><span data-icon="mic"></span>Tu voz</legend><label>Micrófono<select id="mic" data-k="mic"></select></label><div id="vu"><i></i></div><div class="meter-label"><span>Nivel de entrada</span><span id="microState">Micro activo</span></div><label class="check-label"><input type="checkbox" data-k="clean">Reducir ruido del micro local</label><label class="check-label"><input type="checkbox" data-k="sysAudio">Incluir audio del sistema</label></fieldset>
+   <fieldset id="vdoPanel" data-group="sources"><legend><span data-icon="phone"></span>Desde tu móvil</legend><p id="vdoHelp">Tu cámara y tu voz, desde el teléfono. Crea un enlace y ábrelo en el móvil con VDO.Ninja.</p><button id="vdoGenerate">Crear enlace para el móvil</button><label>Ya tengo un enlace<input id="vdoUrl" type="text" placeholder="https://vdo.ninja/?view=…" aria-label="Enlace de VDO.Ninja"></label><div class="field-actions"><button id="vdoConnect">Conectar</button><button id="vdoDisconnect" disabled>Desconectar</button></div><p id="vdoSend" hidden><span id="vdoLink"></span><button id="vdoCopy">Copiar enlace del móvil</button></p><p id="vdoStatus" role="status">Móvil desconectado</p></fieldset>
+   <fieldset data-group="appearance" hidden><legend><span data-icon="screen"></span>Imagen y calidad</legend><div class="control-pair"><label>Resolución<select data-k="res" data-num><option value="720">720p</option><option value="1080">1080p</option><option value="1440">1440p</option></select></label><label>Fotogramas<select data-k="fps" data-num><option value="30">30 fps</option><option value="60">60 fps</option></select></label></div><label>Fondo de la pantalla<select data-k="bg"><option value="none">Ninguno</option><option value="blue">Azul</option><option value="purple">Morado</option><option value="sunset">Cálido</option><option value="dark">Oscuro</option></select></label><p class="field-hint">Los fondos añaden margen, esquinas suaves y sombra a la pantalla.</p></fieldset>
+   <fieldset data-group="appearance" hidden><legend><span data-icon="camera"></span>Burbuja de cámara</legend><label>Forma<select data-k="shape"><option value="circle">Círculo</option><option value="square">Cuadrado</option><option value="wide">16:9</option></select></label><label>Borde<select data-k="border"><option value="none">Sin borde</option><option value="white">Blanco</option><option value="black">Negro</option></select></label><label><span class="range-line"><span>Tamaño</span><output id="sizeValue">280 px</output></span><input type="range" data-k="size" min="120" max="700" step="10"></label><p class="field-hint">Arrastra la burbuja en la vista previa para elegir su posición.</p></fieldset>
+   <fieldset data-group="advanced" hidden><legend><span data-icon="zoom"></span>Zoom y clics</legend><label class="check-label"><input type="checkbox" data-k="autoZoom">Zoom automático al hacer clic</label><div class="control-pair"><label>Nivel<select data-k="autoLevel" data-num><option value="1.5">1.5×</option><option value="1.8">1.8×</option><option value="2.2">2.2×</option></select></label><label>Duración<select data-k="autoSecs" data-num><option value="2">2 s</option><option value="4">4 s</option><option value="6">6 s</option></select></label></div><label class="check-label"><input type="checkbox" data-k="ripple">Resaltar clics</label><button id="resetZoom" class="quiet">Restablecer zoom</button></fieldset>
+   <fieldset data-group="advanced" hidden><legend><span data-icon="folder"></span>Preparación y guardado</legend><label>Cuenta atrás<select data-k="countdown" data-num><option value="3">3 segundos</option><option value="0">Sin cuenta atrás</option></select></label><label>Carpeta de grabaciones<span id="dir"></span></label><div class="field-actions"><button id="chdir">Cambiar carpeta</button><button id="openDir">Abrir</button></div><label class="check-label"><input type="checkbox" id="ontop">Mantener la app encima</label></fieldset>
+  </div></aside>
+ </main>
+ <section id="transcriptionPanel" class="transcription-panel" hidden aria-label="Transcripción local"><div class="section-head"><div><p class="eyebrow">De tu voz al texto</p><h2>Lo que dijiste, por escrito.</h2><p>Transcribe en tu PC. Copia el texto o llévalo a tus subtítulos.</p></div><button id="closeTranscript" data-icon="close" title="Volver al estudio" aria-label="Cerrar transcripción"></button></div><div class="transcript-settings"><label>Motor<select id="transcriptEngine"><option value="speaches">Speaches · Docker local</option><option value="builtin">Whisper integrado</option></select></label><label id="serverLabel">Servidor<input id="speachesUrl" type="text" aria-label="Servidor Speaches local" value="http://127.0.0.1:8001"></label><label id="modelLabel">Modelo<select id="speachesModel"><option>Systran/faster-whisper-small</option></select></label><button id="connectSpeaches">Conectar / actualizar</button></div><div class="transcript-actions"><button id="prepareTranscript" hidden>Preparar motor</button><button id="transcribeLast" class="primary">Última grabación</button><button id="transcribeFile">Elegir archivo</button><label>Idioma<select id="transcriptLanguage"><option value="auto">Detectar</option><option value="es">Español</option><option value="en">Inglés</option></select></label><button id="cancelTranscript" hidden>Cancelar</button></div><p id="transcriptStatus" class="transcript-status" role="status">Listo</p><textarea id="transcriptText" readonly placeholder="Tu transcripción aparecerá aquí." aria-label="Texto transcrito"></textarea><div class="transcript-footer"><div class="transcript-actions"><button id="copyTranscript" disabled>Copiar texto</button><button id="openTranscript" disabled>Archivo TXT</button><button id="openSubtitles" disabled>Subtítulos SRT</button></div><small>Se guarda junto al vídeo.</small></div></section>
+ <section id="helpPanel" class="help-panel" hidden aria-label="Atajos"><p class="eyebrow">A tu ritmo</p><h2>Menos clics. Más fluidez.</h2><p>Estos atajos funcionan aunque estés en otra aplicación.</p><div class="keys"><div class="key-row"><kbd>Ctrl + Shift + R</kbd>Grabar / parar</div><div class="key-row"><kbd>Ctrl + Shift + P</kbd>Pausar / seguir</div><div class="key-row"><kbd>Ctrl + Shift + M</kbd>Silenciar / activar micro</div><div class="key-row"><kbd>Ctrl + Shift + W</kbd>Mostrar / ocultar widget</div><div class="key-row"><kbd>Ctrl + Shift + Z</kbd>Zoom al cursor</div><div class="key-row"><kbd>Ctrl + Shift + X</kbd>Restablecer zoom</div><div class="key-row"><kbd>Ctrl + Shift + Espacio</kbd>Reproducir / pausar guion</div><div class="key-row"><kbd>Ctrl + Shift + ↑ / ↓</kbd>Velocidad del teleprompter</div></div><div class="privacy-note">La app, el widget y el teleprompter quedan fuera del vídeo. La transcripción se procesa en este PC.</div></section>
+</div>
+<script src="brand.js"></script>
+<script src="ui-icons.js"></script>
+<script>
+const $ = id => document.getElementById(id);
+const canvas = $('preview'), ctx = canvas.getContext('2d');
+document.querySelectorAll('[data-icon]').forEach(el=>el.innerHTML=icon(el.dataset.icon));
+const DEF = { mode: 'both', src: '', res: 1080, fps: 30, bg: 'none', area: null, countdown: 3, dir: '',
+  cam: '', camShow: true, mirror: false, shape: 'circle', border: 'white', size: 280, bx: .12, by: .8,
+  mic: '', clean: false, sysAudio: false, autoZoom: true, autoLevel: 1.8, autoSecs: 4, ripple: true };
+const cfg = Object.assign({}, DEF, JSON.parse(localStorage.cfg || '{}'));
+const save = () => localStorage.cfg = JSON.stringify(cfg);
+const LEVELS = [1, 1.6, 2.4];
+const BGS = { blue: ['#0f2027', '#2c5364'], purple: ['#41295a', '#2f0743'], sunset: ['#ff7e5f', '#feb47b'], dark: ['#2a2a2a', '#000'] };
+
+let screenVideo, camVideo, micStream, micNode, sysNode, analyser, ac, dest;
+const MOBILE = 'vdo-ninja';
+let vdoPeer, vdoToken, vdoStream = new MediaStream(), vdoCandidates = [], vdoMedia = {}, mobileLink = '', vdoConnecting = false;
+// Chromium needs an active media element to decode remote WebRTC audio.
+// Zero volume keeps playback silent while the Web Audio graph records it.
+const vdoAudio = document.createElement('audio'); vdoAudio.volume = 0;
+let recorder, state = 'idle', t0 = 0, paused = 0, pauseAt = 0, discard = false, muted = false;
+let widgetVisible = false, transcriptBusy = false, transcriptReady = false, transcriptResult;
+const cameraThumb = document.createElement('canvas'); cameraThumb.width = 120; cameraThumb.height = 120;
+let cursor = { x: .5, y: .5 }, autoTimer, clicks = [];
+const zoom = { s: 1, x: .5, y: .5, ts: 1, tx: .5, ty: .5 };
+
+const clamp = v => Math.min(1, Math.max(0, v));
+const status = m => { const changed = $('status').textContent !== m; $('status').textContent = m; $('status').classList.toggle('rec', state === 'rec'); if (changed) publishState(); };
+const err = e => { console.log(e.stack || e); status('Error: ' + e.message); };
+const clock = ms => new Date(ms).toISOString().slice(11, 19);
+const vid = s => { const v = document.createElement('video'); v.srcObject = s; v.muted = true; v.play(); return v; };
+const stop = v => v && v.srcObject.getTracks().forEach(t => t.stop());
+const areaOf = () => cfg.area || { x: 0, y: 0, w: 1, h: 1 };
+
+function fill(sel, items, saved) {
+  sel.innerHTML = '';
+  for (const it of items) sel.add(new Option(it.name, it.id));
+  if (saved && items.some(i => i.id === saved)) sel.value = saved;
+}
+async function loadSources() { fill($('src'), await api.invoke('sources'), cfg.src); cfg.src = $('src').value; save(); }
+async function loadDevices() {
+  const devs = await navigator.mediaDevices.enumerateDevices();
+  const list = k => devs.filter(d => d.kind === k).map((d, i) => ({ id: d.deviceId, name: d.label || `${k} ${i + 1}` }));
+  fill($('cam'), [{ id: '', name: 'Sin cámara' }, { id: MOBILE, name: 'Móvil · VDO.Ninja' }, ...list('videoinput')], cfg.cam);
+  fill($('mic'), [{ id: '', name: 'Sin micro' }, { id: MOBILE, name: 'Móvil · VDO.Ninja' }, ...list('audioinput')], cfg.mic);
+}
+
+// un solo grafo de audio: micro + audio del sistema -> una pista mezclada para el grabador
+function graph() { if (!ac) { ac = new AudioContext(); dest = ac.createMediaStreamDestination(); } ac.resume(); }
+
+async function connectScreen() {
+  await api.invoke('select-source', cfg.src);
+  stop(screenVideo); sysNode?.disconnect(); sysNode = null;
+  const s = await navigator.mediaDevices.getDisplayMedia({ video: { frameRate: cfg.fps }, audio: cfg.sysAudio });
+  screenVideo = vid(s); screenVideo.onloadedmetadata = fitCanvas;
+  if (s.getAudioTracks().length) { graph(); sysNode = ac.createMediaStreamSource(new MediaStream(s.getAudioTracks())); sysNode.connect(dest); }
+}
+async function connectCam() {
+  stop(camVideo); camVideo = null;
+  if (cfg.cam === MOBILE) {
+    const tracks = vdoStream.getVideoTracks();
+    if (tracks.length) camVideo = vid(new MediaStream(tracks.map(t => t.clone())));
+    return;
+  }
+  if (cfg.cam) camVideo = vid(await navigator.mediaDevices.getUserMedia({ video: { deviceId: { exact: cfg.cam }, width: { ideal: 1280 }, height: { ideal: 720 } } }));
+}
+async function connectMic() {
+  micStream?.getTracks().filter(t => !vdoStream.getTracks().includes(t)).forEach(t => t.stop()); micNode?.disconnect(); micStream = micNode = analyser = null;
+  if (!cfg.mic) return;
+  // cfg.clean=false: sin procesado, el micro pro ya viene limpio
+  if (cfg.mic === MOBILE) {
+    const tracks = vdoStream.getAudioTracks();
+    if (!tracks.length) return;
+    micStream = new MediaStream(tracks);
+  } else micStream = await navigator.mediaDevices.getUserMedia({ audio: { deviceId: { exact: cfg.mic }, echoCancellation: cfg.clean, noiseSuppression: cfg.clean, autoGainControl: cfg.clean } });
+  micStream.getAudioTracks()[0].enabled = !muted;
+  graph(); micNode = ac.createMediaStreamSource(micStream);
+  analyser = ac.createAnalyser(); analyser.fftSize = 256;
+  micNode.connect(analyser); micNode.connect(dest);
+}
+
+function mobileStatus() {
+  const connected = vdoPeer?.connectionState === 'connected';
+  $('vdoStatus').textContent = connected && (vdoMedia.video || vdoMedia.audio)
+    ? `Móvil conectado · cámara ${vdoMedia.video ? 'lista' : 'sin señal'} · micro ${vdoMedia.audio ? 'listo' : 'sin señal'}`
+    : vdoToken ? 'Esperando cámara y micro del móvil… Comprueba que estás emitiendo en VDO.Ninja.' : 'Móvil desconectado';
+}
+function clearMobile() {
+  vdoAudio.pause(); vdoAudio.srcObject = null;
+  vdoPeer?.close(); vdoPeer = null; vdoToken = null; vdoCandidates = []; vdoMedia = {};
+  vdoStream.getTracks().forEach(t => t.stop()); vdoStream = new MediaStream();
+  if (cfg.cam === MOBILE) connectCam().catch(err);
+  if (cfg.mic === MOBILE) connectMic().catch(err);
+  mobileStatus(); ui();
+}
+async function connectMobile() {
+  if (state !== 'idle' || vdoConnecting) return;
+  clearMobile(); vdoConnecting = true; ui();
+  $('vdoStatus').textContent = 'Conectando con VDO.Ninja…';
+  try {
+    vdoToken = await api.invoke('vdo-connect', $('vdoUrl').value);
+    cfg.cam = cfg.mic = MOBILE; cfg.camShow = true; save();
+    $('cam').value = $('mic').value = MOBILE;
+    document.querySelector('[data-k="camShow"]').checked = true;
+    await connectCam(); await connectMic(); mobileStatus();
+  } catch (e) { $('vdoStatus').textContent = 'Error: ' + e.message; }
+  finally { vdoConnecting = false; ui(); }
+}
+api.on('vdo-signal', async packet => {
+  if (packet.token !== vdoToken) return;
+  try {
+    if (packet.type === 'offer') {
+      vdoPeer?.close();
+      const peer = vdoPeer = new RTCPeerConnection({ iceServers: [] });
+      peer.onicecandidate = e => e.candidate && api.send('vdo-signal', { token: vdoToken, type: 'ice', candidate: e.candidate.toJSON() });
+      peer.onconnectionstatechange = mobileStatus;
+      peer.ontrack = e => {
+        vdoStream.getTracks().filter(t => t.kind === e.track.kind).forEach(t => { vdoStream.removeTrack(t); t.stop(); });
+        vdoStream.addTrack(e.track);
+        if (e.track.kind === 'audio') { vdoAudio.srcObject = new MediaStream([e.track]); vdoAudio.play().catch(err); }
+        e.track.onmute = e.track.onunmute = mobileStatus;
+        if (e.track.kind === 'video' && cfg.cam === MOBILE) connectCam().catch(err);
+        if (e.track.kind === 'audio' && cfg.mic === MOBILE) connectMic().catch(err);
+      };
+      await peer.setRemoteDescription(packet.description);
+      for (const candidate of vdoCandidates.splice(0)) await peer.addIceCandidate(candidate);
+      await peer.setLocalDescription(await peer.createAnswer());
+      api.send('vdo-signal', { token: vdoToken, type: 'answer', description: peer.localDescription.toJSON() });
+    } else if (packet.type === 'ice') {
+      if (vdoPeer?.remoteDescription) await vdoPeer.addIceCandidate(packet.candidate);
+      else vdoCandidates.push(packet.candidate);
+    } else if (packet.type === 'media') { vdoMedia = packet; mobileStatus(); }
+    else if (packet.type === 'closed') clearMobile();
+    else if (packet.type === 'error') $('vdoStatus').textContent = 'Error de VDO.Ninja: ' + packet.message;
+  } catch (e) { $('vdoStatus').textContent = 'Error de conexión: ' + e.message; }
+});
+
+// el lienzo toma la forma de lo que se graba (pantalla, ventana o área); con fondo es 16:9
+function fitCanvas() {
+  if (['rec', 'paused', 'stopping'].includes(state)) return;
+  let asp = 16 / 9;
+  if (cfg.mode !== 'cam' && cfg.bg === 'none' && screenVideo?.videoWidth) {
+    const A = areaOf(); asp = (screenVideo.videoWidth * A.w) / (screenVideo.videoHeight * A.h);
+  }
+  canvas.height = cfg.res; canvas.width = Math.round(cfg.res * asp / 2) * 2;
+  canvas.style.aspectRatio = `${canvas.width} / ${canvas.height}`;
+  resizePreview(); updateStudio();
+}
+
+function resizePreview(){
+  const box=$('previewShell');const width=Math.max(1,box.clientWidth-36),height=Math.max(1,box.clientHeight-36),aspect=canvas.width/canvas.height;
+  const fitted=Math.min(width,height*aspect);canvas.style.width=fitted+'px';canvas.style.height=fitted/aspect+'px';
+}
+new ResizeObserver(resizePreview).observe($('previewShell'));
+function updateStudio(){
+  $('previewQuality').textContent=cfg.res+'p · '+cfg.fps+' fps';
+  $('previewMode').textContent=document.querySelector('[data-k="mode"]').selectedOptions[0]?.textContent||'Pantalla + cámara';
+  $('cameraSummary').textContent=!cfg.camShow?'Cámara oculta':$('cam').selectedOptions[0]?.textContent||'Sin cámara';
+  $('microSummary').textContent=muted?'Micro silenciado':$('mic').selectedOptions[0]?.textContent||'Sin micro';
+  $('microState').textContent=muted?'Silenciado':cfg.mic?'Activo':'Sin micro';$('sizeValue').textContent=cfg.size+' px';
+  $('bubbleHint').textContent=cfg.mode==='both'&&cfg.camShow?'Arrastra la burbuja para colocarla':'Tu composición, tal como se grabará';
+  $('studioHeading').textContent={idle:'Dale forma a tu idea.',rec:'Estás grabando.',paused:'Tómate un momento.',countdown:'Todo a punto.',stopping:'Una toma más, lista.'}[state];
+  $('studioDescription').textContent={idle:'Prepara tus fuentes. Nosotros ponemos el foco.',rec:'Sigue a tu ritmo. Puedes pausar cuando quieras.',paused:'La grabación está en pausa. Continúa cuando quieras.',countdown:'Tu grabación está a punto de empezar.',stopping:'Guardando tu vídeo en este PC.'}[state];
+}
+function selectNav(id){for(const el of document.querySelectorAll('.rail button')){const active=el.id===id;el.classList.toggle('active',active);if(active)el.setAttribute('aria-current','page');else el.removeAttribute('aria-current');}}
+function selectSettings(panel){for(const el of document.querySelectorAll('[data-group]'))el.hidden=el.dataset.group!==panel;for(const tab of document.querySelectorAll('[data-panel]')){const active=tab.dataset.panel===panel;tab.classList.toggle('active',active);tab.setAttribute('aria-selected',String(active));}$('settingsScroll').scrollTop=0;}
+for(const tab of document.querySelectorAll('[data-panel]'))tab.onclick=()=>selectSettings(tab.dataset.panel);
+function openStudio(){ $('helpPanel').hidden=$('transcriptionPanel').hidden=true;selectNav('navRecord'); }
+$('navRecord').onclick=openStudio;$('navTranscript').onclick=()=>openTranscript().catch(err);$('navHelp').onclick=()=>{$('transcriptionPanel').hidden=true;$('helpPanel').hidden=false;selectNav('navHelp');};
+$('navMobile').onclick=()=>{openStudio();selectSettings('sources');selectNav('navMobile');$('vdoPanel').scrollIntoView({behavior:'smooth',block:'start'});};
+
+function drawCover(v, d, mirror) {
+  const f = Math.max(d.w / v.videoWidth, d.h / v.videoHeight);
+  ctx.save(); ctx.beginPath(); ctx.rect(d.x, d.y, d.w, d.h); ctx.clip();
+  ctx.translate(d.x + d.w / 2, d.y + d.h / 2); ctx.scale(mirror ? -1 : 1, 1);
+  ctx.drawImage(v, -v.videoWidth * f / 2, -v.videoHeight * f / 2, v.videoWidth * f, v.videoHeight * f);
+  ctx.restore();
+}
+
+function drawBubble(u) {
+  const bw = cfg.size * u, bh = cfg.shape === 'wide' ? bw * 9 / 16 : bw;
+  const x = cfg.bx * canvas.width, y = cfg.by * canvas.height;
+  const path = () => { ctx.beginPath(); if (cfg.shape === 'circle') ctx.arc(x, y, bw / 2, 0, Math.PI * 2); else ctx.roundRect(x - bw / 2, y - bh / 2, bw, bh, 24 * u); };
+  ctx.save(); ctx.shadowColor = 'rgba(0,0,0,.45)'; ctx.shadowBlur = 24 * u; ctx.shadowOffsetY = 6 * u; ctx.fillStyle = '#000'; path(); ctx.fill(); ctx.restore();
+  ctx.save(); path(); ctx.clip();
+  const vw = camVideo.videoWidth, vh = camVideo.videoHeight, f = Math.max(bw / vw, bh / vh);
+  ctx.translate(x, y); ctx.scale(cfg.mirror ? -1 : 1, 1);
+  ctx.drawImage(camVideo, -vw * f / 2, -vh * f / 2, vw * f, vh * f);
+  ctx.restore();
+  if (cfg.border !== 'none') { path(); ctx.lineWidth = 6 * u; ctx.strokeStyle = cfg.border; ctx.stroke(); }
+}
+
+function draw() {
+  const W = canvas.width, H = canvas.height, u = H / 1080, A = areaOf();
+  const cc = { x: clamp((cursor.x - A.x) / A.w), y: clamp((cursor.y - A.y) / A.h) }; // cursor dentro del área
+  // zoom: la vista solo se mueve cuando el cursor sale de la "caja segura" central
+  if (zoom.ts > 1) {
+    const m = .5 / zoom.ts * .6;
+    if (cc.x > zoom.tx + m) zoom.tx = cc.x - m;
+    if (cc.x < zoom.tx - m) zoom.tx = cc.x + m;
+    if (cc.y > zoom.ty + m) zoom.ty = cc.y - m;
+    if (cc.y < zoom.ty - m) zoom.ty = cc.y + m;
+  } else zoom.tx = zoom.ty = .5;
+  const k = .1;
+  zoom.s += (zoom.ts - zoom.s) * k; zoom.x += (zoom.tx - zoom.x) * k; zoom.y += (zoom.ty - zoom.y) * k;
+  const half = .5 / zoom.s;
+  const cx = Math.min(Math.max(zoom.x, half), 1 - half), cy = Math.min(Math.max(zoom.y, half), 1 - half);
+
+  ctx.fillStyle = '#000'; ctx.fillRect(0, 0, W, H);
+  if (cfg.mode === 'cam') {
+    if (cfg.camShow && camVideo?.videoWidth) drawCover(camVideo, { x: 0, y: 0, w: W, h: H }, cfg.mirror);
+  } else if (screenVideo?.videoWidth) {
+    const vw = screenVideo.videoWidth, vh = screenVideo.videoHeight, svw = vw * A.w, svh = vh * A.h;
+    let d;
+    ctx.save();
+    if (cfg.bg !== 'none') {
+      const g = ctx.createLinearGradient(0, 0, W, H); g.addColorStop(0, BGS[cfg.bg][0]); g.addColorStop(1, BGS[cfg.bg][1]);
+      ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+      const pad = 70 * u, f = Math.min((W - 2 * pad) / svw, (H - 2 * pad) / svh);
+      d = { x: (W - svw * f) / 2, y: (H - svh * f) / 2, w: svw * f, h: svh * f };
+      ctx.save(); ctx.shadowColor = 'rgba(0,0,0,.5)'; ctx.shadowBlur = 40 * u; ctx.shadowOffsetY = 12 * u;
+      ctx.fillStyle = '#000'; ctx.beginPath(); ctx.roundRect(d.x, d.y, d.w, d.h, 20 * u); ctx.fill(); ctx.restore();
+      ctx.beginPath(); ctx.roundRect(d.x, d.y, d.w, d.h, 20 * u); ctx.clip();
+    } else {
+      const f = Math.min(W / svw, H / svh);
+      d = { x: (W - svw * f) / 2, y: (H - svh * f) / 2, w: svw * f, h: svh * f };
+    }
+    const sw = svw / zoom.s, sh = svh / zoom.s;
+    ctx.drawImage(screenVideo, vw * A.x + cx * svw - sw / 2, vh * A.y + cy * svh - sh / 2, sw, sh, d.x, d.y, d.w, d.h);
+    const now = performance.now();
+    clicks = clicks.filter(c => now - c.t < 600);
+    if (cfg.ripple) for (const c of clicks) {
+      const p = (now - c.t) / 600;
+      const px = d.x + ((c.x - cx) * zoom.s + .5) * d.w, py = d.y + ((c.y - cy) * zoom.s + .5) * d.h;
+      ctx.beginPath(); ctx.arc(px, py, (12 + 40 * p) * u, 0, Math.PI * 2);
+      ctx.strokeStyle = `rgba(255,70,70,${1 - p})`; ctx.lineWidth = 4 * u; ctx.stroke();
+    }
+    ctx.restore();
+  }
+  if (cfg.mode === 'both' && cfg.camShow && camVideo?.videoWidth) drawBubble(u);
+  if (analyser) {
+    const a = new Uint8Array(analyser.fftSize); analyser.getByteTimeDomainData(a);
+    let sum = 0; for (const v of a) sum += (v - 128) ** 2;
+    $('vu').firstElementChild.style.width = Math.min(100, Math.sqrt(sum / a.length) * 3) + '%';
+  }
+  if (state === 'rec') status('● REC ' + clock(Date.now() - t0 - paused));
+  $('previewEmpty').hidden=cfg.mode==='cam'?!!(cfg.camShow&&camVideo?.videoWidth):!!screenVideo?.videoWidth;
+  requestAnimationFrame(draw);
+}
+
+function ui() {
+  const idle = state === 'idle';
+  buttonIcon($('rec'),idle?'record':'stop',idle?'Grabar':'Parar');
+  $('rec').disabled = state === 'countdown' || state === 'stopping';
+  $('pause').disabled = $('discard').disabled = state !== 'rec' && state !== 'paused';
+  buttonIcon($('pause'),state==='paused'?'play':'pause',state==='paused'?'Seguir':'Pausar');
+  buttonIcon($('micBtn'),muted?'micOff':'mic');$('micBtn').setAttribute('aria-pressed',String(muted));
+  $('micBtn').title=$('micBtn').ariaLabel=muted?'Activar micro · Ctrl+Shift+M':'Silenciar micro · Ctrl+Shift+M';
+  for (const el of document.querySelectorAll('[data-k]')) el.disabled = !idle && ['src', 'res', 'fps'].includes(el.dataset.k);
+  $('refresh').disabled = $('areaOff').disabled = !idle;
+  $('area').disabled = !idle || !cfg.src.startsWith('screen');
+  for (const id of ['vdoUrl', 'vdoGenerate', 'vdoConnect']) $(id).disabled = !idle || vdoConnecting;
+  $('vdoDisconnect').disabled = !idle || !vdoToken || vdoConnecting;
+  for (const id of ['cam', 'mic']) $(id).disabled = !idle;
+  $('transcribeBtn').disabled = !idle;
+  transcriptUI(); publishState();
+  updateStudio();
+}
+
+function publishState() {
+  const elapsed = ['rec','paused','stopping'].includes(state) ? Math.max(0, (state === 'paused' ? pauseAt : Date.now()) - t0 - paused) : 0;
+  const options={};for(const el of document.querySelectorAll('select[data-k]'))options[el.dataset.k]=Array.from(el.options,o=>({id:o.value,name:o.textContent}));
+  const locked=Array.from(document.querySelectorAll('[data-k]:disabled'),el=>el.dataset.k);
+  api.send('rec-state', {state, elapsed, muted, message:$('status').textContent,config:cfg,options,locked,zoom:zoom.ts,mobile:$('vdoStatus').textContent,vdo:{url:$('vdoUrl').value,link:mobileLink,connected:!!vdoToken,connecting:vdoConnecting}});
+}
+window.widgetAction=async(action,value)=>{
+  if(action==='configure'){
+    const el=document.querySelector(`[data-k="${CSS.escape(value.key)}"]`);
+    if(!el||el.disabled)return;
+    if(el.type==='checkbox'){if(typeof value.value!=='boolean')return;el.checked=value.value;}
+    else {el.value=value.value;if(el.tagName==='SELECT'&&el.selectedIndex<0)return;}
+    (el.onchange||el.oninput)?.();publishState();
+  }else if(action==='control'){
+    if(value.id==='zoom-out'){hotkey('zoom-out');publishState();return;}
+    if(!['area','areaOff','refresh','chdir','openDir','vdoGenerate','vdoConnect','vdoDisconnect','vdoCopy'].includes(value.id))return;
+    if(value.id==='vdoConnect'&&typeof value.url==='string')$('vdoUrl').value=value.url;
+    const el=$(value.id);if(!el.disabled)await el.onclick();publishState();
+  }else if(action==='discard'&&['rec','paused'].includes(state))$('discard').click();
+  else if(action==='toggle-camera'){const el=document.querySelector('[data-k="camShow"]');el.checked=!el.checked;el.onchange();publishState();}
+};
+api.on('widget-visible', visible => widgetVisible = visible);
+setInterval(() => {
+  publishState();
+  if (!widgetVisible) return;
+  if (camVideo?.videoWidth && cfg.camShow) {
+    const c = cameraThumb.getContext('2d'), size = Math.min(camVideo.videoWidth,camVideo.videoHeight);
+    c.save(); c.clearRect(0,0,120,120);
+    if (cfg.mirror) { c.translate(120,0); c.scale(-1,1); }
+    c.drawImage(camVideo,(camVideo.videoWidth-size)/2,(camVideo.videoHeight-size)/2,size,size,0,0,120,120); c.restore();
+    api.send('widget-camera',cameraThumb.toDataURL('image/jpeg',.65));
+  } else api.send('widget-camera','');
+}, 250);
+
+function transcriptUI() {
+  const available = state === 'idle' && !transcriptBusy && transcriptReady;
+  $('transcribeLast').disabled = $('transcribeFile').disabled = !available;
+  const speaches = $('transcriptEngine').value === 'speaches';
+  $('prepareTranscript').hidden = transcriptReady || speaches;
+  $('prepareTranscript').disabled = transcriptBusy || state !== 'idle';
+  $('transcriptLanguage').disabled = transcriptBusy;
+  $('cancelTranscript').hidden = !transcriptBusy;
+  for (const id of ['transcriptEngine','speachesUrl','speachesModel','connectSpeaches']) $(id).disabled = transcriptBusy;
+  $('serverLabel').hidden = $('modelLabel').hidden = !speaches;
+}
+async function openTranscript() {
+  $('helpPanel').hidden=true;selectNav('navTranscript');
+  $('transcriptionPanel').hidden = false;
+  $('transcriptionPanel').scrollIntoView({behavior:'smooth',block:'nearest'});
+  await refreshTranscript();
+}
+async function refreshTranscript() {
+  $('transcriptStatus').textContent = 'Comprobando el motor local…';
+  const info = await api.invoke('transcription-status'); transcriptReady = info.ready;
+  $('transcriptEngine').value = info.settings.engine;
+  $('speachesUrl').value = info.settings.url;
+  fill($('speachesModel'), (info.models.length ? info.models : [info.settings.model]).filter(Boolean).map(id=>({id,name:id})),info.settings.model);
+  if (info.settings.engine === 'speaches' && info.models.length && !info.models.includes(info.settings.model)) {
+    await api.invoke('transcription-settings',{...info.settings,model:$('speachesModel').value}); transcriptReady = true;
+  }
+  if (!transcriptBusy) $('transcriptStatus').textContent = info.error || (transcriptReady ? 'Listo. Elige la última grabación o un archivo.' : info.settings.engine === 'speaches' ? 'No hay un modelo de transcripción instalado en Speaches.' : 'La primera preparación descarga el motor y el modelo. Después puedes transcribir sin Internet.');
+  transcriptUI();
+}
+async function transcribeRecording(choose) {
+  if (transcriptBusy || state !== 'idle') return;
+  transcriptBusy = true; transcriptUI(); $('transcriptStatus').textContent = 'Transcribiendo en este PC…';
+  try {
+    const result = await api.invoke('transcription-start', {choose,language:$('transcriptLanguage').value});
+    if (!result) { $('transcriptStatus').textContent = 'Selección cancelada.'; return; }
+    transcriptResult = result; $('transcriptText').value = result.text;
+    $('copyTranscript').disabled = !result.text; $('openTranscript').disabled = false; $('openSubtitles').disabled = !result.srt;
+    $('transcriptStatus').textContent = result.text ? `Transcripción guardada en TXT${result.srt ? ' y SRT' : ''} junto a la grabación.` : 'No se ha detectado voz en la grabación.';
+  } catch (e) { $('transcriptStatus').textContent = 'Error: ' + e.message; }
+  finally { transcriptBusy = false; transcriptUI(); }
+}
+api.on('transcription-progress', info => { $('transcriptStatus').textContent = info.message || `Transcribiendo en este PC… ${info.percent}%`; });
+
+async function startRec() {
+  if (state !== 'idle') return;
+  state = 'countdown'; ui();
+  try {
+    const mobileVideo = cfg.cam === MOBILE && cfg.camShow && ['cam','both'].includes(cfg.mode);
+    if ((mobileVideo || cfg.mic === MOBILE) && vdoPeer?.connectionState !== 'connected') throw new Error('Conecta el móvil antes de grabar.');
+    if (mobileVideo && (!vdoMedia.video || !camVideo?.videoWidth)) throw new Error('Todavía no llega la cámara del móvil.');
+    if (cfg.mic === MOBILE && (!vdoMedia.audio || !micNode)) throw new Error('Todavía no llega el micro del móvil.');
+    if (!screenVideo && cfg.mode !== 'cam') await connectScreen();
+    for (let n = cfg.countdown; n > 0; n--) { status(String(n)); await new Promise(r => setTimeout(r, 1000)); }
+    await api.invoke('rec-start', cfg.dir);
+  } catch (e) { state = 'idle'; ui(); return err(e); }
+  fitCanvas();
+  const stream = canvas.captureStream(cfg.fps);
+  if (micNode || sysNode) stream.addTrack(dest.stream.getAudioTracks()[0]);
+  const mime = ['video/webm;codecs=vp9,opus', 'video/webm;codecs=vp8,opus'].find(m => MediaRecorder.isTypeSupported(m));
+  recorder = new MediaRecorder(stream, { mimeType: mime, videoBitsPerSecond: 8e6 * (canvas.width * canvas.height) / (1920 * 1080) * (cfg.fps / 30) });
+  let q = Promise.resolve(); // los trozos van al disco en orden; el último llega justo antes de onstop
+  recorder.ondataavailable = e => { if (e.data.size) q = q.then(async () => api.send('rec-chunk', await e.data.arrayBuffer())); };
+  recorder.onstop = async () => {
+    try {
+      await q;
+      if (discard) { discard = false; await api.invoke('rec-cancel'); status('Descartado'); return; }
+      status('Guardando vídeo...');
+      const out = await api.invoke('rec-finish', cfg.fps);
+      console.log('Guardado', out); status('Guardado: ' + out.split(/[\\/]/).pop());
+      api.invoke('show-file', out);
+    } catch (e) { err(e); }
+    finally { stream.getVideoTracks().forEach(t=>t.stop()); state = 'idle'; ui(); }
+  };
+  recorder.start(1000);
+  state = 'rec'; t0 = Date.now(); paused = 0; ui();
+}
+function stopRec() {
+  if (state !== 'rec' && state !== 'paused') return;
+  state = 'stopping'; ui(); status('Parando...');
+  recorder.stop();
+}
+function togglePause() {
+  if (state === 'rec') { recorder.pause(); pauseAt = Date.now(); state = 'paused'; status('Pausa'); }
+  else if (state === 'paused') { recorder.resume(); paused += Date.now() - pauseAt; state = 'rec'; }
+  ui();
+}
+function setZoom(s, x, y) { zoom.ts = s; if (s > 1) { zoom.tx = x; zoom.ty = y; } clearTimeout(autoTimer); }
+
+window.hotkey = name => ({
+  'transcribe': () => openTranscript().catch(err),
+  'toggle-record': () => state === 'idle' ? startRec() : stopRec(),
+  'toggle-pause': togglePause,
+  'toggle-mute': () => { muted = !muted; micStream?.getAudioTracks().forEach(t => t.enabled = !muted); $('mute').textContent = muted ? 'MICRO SILENCIADO' : '';ui(); },
+  'zoom-in': () => { const A = areaOf(); setZoom(LEVELS.find(l => l > zoom.ts + .05) || 1, clamp((cursor.x - A.x) / A.w), clamp((cursor.y - A.y) / A.h)); },
+  'zoom-out': () => setZoom(1),
+})[name]?.();
+
+// clic global (lo manda main): resaltar + zoom automático, solo mientras graba
+function onClick(c) {
+  if (state !== 'rec') return;
+  const A = areaOf(), p = { x: clamp((c.x - A.x) / A.w), y: clamp((c.y - A.y) / A.h) };
+  clicks.push({ ...p, t: performance.now() });
+  if (!cfg.autoZoom) return;
+  const m = .5 / cfg.autoLevel * .6;
+  if (zoom.ts > 1 && Math.abs(p.x - zoom.tx) < m && Math.abs(p.y - zoom.ty) < m) { clearTimeout(autoTimer); zoom.ts = cfg.autoLevel; } // ya se ve: no mover
+  else setZoom(cfg.autoLevel, p.x, p.y);
+  autoTimer = setTimeout(() => zoom.ts = 1, cfg.autoSecs * 1000);
+}
+
+// arrastrar la burbuja en la vista previa
+let drag = false;
+const norm = e => { const r = canvas.getBoundingClientRect(); return { x: (e.clientX - r.left) / r.width, y: (e.clientY - r.top) / r.height }; };
+canvas.onpointerdown = e => {
+  const p = norm(e), u = canvas.height / 1080, bw = cfg.size * u, bh = cfg.shape === 'wide' ? bw * 9 / 16 : bw;
+  if (Math.abs((p.x - cfg.bx) * canvas.width) < bw / 2 && Math.abs((p.y - cfg.by) * canvas.height) < bh / 2) { drag = true; canvas.setPointerCapture(e.pointerId); }
+};
+canvas.onpointermove = e => { if (drag) { const p = norm(e); cfg.bx = clamp(p.x); cfg.by = clamp(p.y); } };
+canvas.onpointerup = () => { if (drag) { drag = false; save(); } };
+
+// todos los controles con data-k leen y escriben cfg
+function changed(k) {
+  if (k === 'src') cfg.area = null;
+  if (['src', 'sysAudio', 'fps'].includes(k)) connectScreen().catch(err);
+  if (k === 'cam') connectCam().catch(err);
+  if (['mic', 'clean'].includes(k)) connectMic().catch(err);
+  $('areaOff').hidden = !cfg.area; save(); fitCanvas();
+}
+for (const el of document.querySelectorAll('[data-k]')) {
+  const k = el.dataset.k;
+  if (el.type === 'checkbox') el.checked = cfg[k]; else el.value = cfg[k];
+  el[el.type === 'range' ? 'oninput' : 'onchange'] = () => { cfg[k] = el.type === 'checkbox' ? el.checked : 'num' in el.dataset ? +el.value : el.value; changed(k); };
+}
+api.on('cursor', c => cursor = c);
+api.on('click', onClick);
+navigator.mediaDevices.ondevicechange = loadDevices;
+$('refresh').onclick = loadSources;
+$('area').onclick = async () => { const r = await api.invoke('pick-area'); if (r) { cfg.area = r; changed('area'); } };
+$('areaOff').onclick = () => { cfg.area = null; changed('area'); };
+$('chdir').onclick = async () => { const d = await api.invoke('choose-dir'); if (d) { cfg.dir = d; save(); $('dir').textContent = d; } };
+$('openDir').onclick = () => api.invoke('open-dir', cfg.dir);
+$('ontop').onchange = e => api.invoke('on-top', e.target.checked);
+$('rec').onclick = () => state === 'idle' ? startRec() : stopRec();
+$('pause').onclick = togglePause;
+$('discard').onclick = () => { discard = true; stopRec(); };
+$('tp').onclick = () => api.invoke('open-prompter');
+$('micBtn').onclick=()=>hotkey('toggle-mute');$('zoomBtn').onclick=()=>hotkey('zoom-in');
+for(const [id,name,label] of [['discard','trash',''],['tp','prompt','Guion'],['widgetBtn','settings','Widget flotante'],['transcribeBtn','text',''],['zoomBtn','zoom','']])buttonIcon($(id),name,label);
+$('resetZoom').onclick=()=>hotkey('zoom-out');
+$('widgetBtn').onclick = () => api.invoke('open-widget',true);
+$('transcribeBtn').onclick = () => openTranscript().catch(err);
+$('closeTranscript').onclick = openStudio;
+$('transcribeLast').onclick = () => transcribeRecording(false);
+$('transcribeFile').onclick = () => transcribeRecording(true);
+$('connectSpeaches').onclick = async () => {
+  try {
+    await api.invoke('transcription-settings',{engine:$('transcriptEngine').value,url:$('speachesUrl').value,model:$('speachesModel').value});
+    await refreshTranscript();
+  } catch(e) {transcriptReady = false;transcriptUI();$('transcriptStatus').textContent = 'Error: '+e.message;}
+};
+$('transcriptEngine').onchange = $('speachesModel').onchange = () => $('connectSpeaches').click();
+$('cancelTranscript').onclick = () => api.invoke('transcription-cancel');
+$('prepareTranscript').onclick = async () => {
+  transcriptBusy = true; transcriptUI(); $('cancelTranscript').hidden = true;
+  $('transcriptStatus').textContent = 'Descargando el motor y el modelo local. Puede tardar unos minutos…';
+  try { await api.invoke('transcription-prepare'); transcriptReady = true; $('transcriptStatus').textContent = 'Motor listo. Ya puedes transcribir sin Internet.'; }
+  catch(e) { $('transcriptStatus').textContent = 'Error: ' + e.message; }
+  finally { transcriptBusy = false; transcriptUI(); }
+};
+$('copyTranscript').onclick = () => api.invoke('copy-text',$('transcriptText').value);
+$('openTranscript').onclick = () => api.invoke('show-file',transcriptResult.txt);
+$('openSubtitles').onclick = () => api.invoke('show-file',transcriptResult.srt);
+$('vdoConnect').onclick = connectMobile;
+$('vdoDisconnect').onclick = async () => { if (state === 'idle') { await api.invoke('vdo-disconnect'); clearMobile(); } };
+$('vdoGenerate').onclick = () => {
+  const bytes = crypto.getRandomValues(new Uint8Array(12));
+  const id = 'loom' + Array.from(bytes, b => b.toString(16).padStart(2, '0')).join('');
+  mobileLink = `https://vdo.ninja/?push=${id}&webcam`;
+  $('vdoUrl').value = `https://vdo.ninja/?view=${id}`;
+  $('vdoLink').textContent = mobileLink; $('vdoSend').hidden = false;
+  connectMobile();
+};
+$('vdoCopy').onclick = async () => { await api.invoke('copy-text', mobileLink); $('vdoCopy').textContent = 'Copiado'; setTimeout(() => $('vdoCopy').textContent = 'Copiar enlace del móvil', 2000); };
+
+// main la llama con gesto de usuario (getDisplayMedia lo exige)
+async function init() {
+  cfg.dir ||= await api.invoke('default-dir'); save();
+  $('dir').textContent = cfg.dir; $('areaOff').hidden = !cfg.area;
+  await loadSources();
+  connectScreen().catch(err);
+  await loadDevices();
+  connectCam().catch(err); connectMic().catch(err);
+  ui(); fitCanvas(); draw();
+}
+</script>
+</body>
+</html>

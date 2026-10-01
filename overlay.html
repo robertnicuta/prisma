@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<style>
+  body { margin: 0; height: 100vh; background: rgba(0, 0, 0, .35); cursor: crosshair; user-select: none; overflow: hidden; }
+  #box { position: fixed; display: none; border: 2px solid #b8a9ff; border-radius:12px; background: rgba(170, 154, 245, .1); }
+  #hint { position: fixed; top: 24px; left: 50%; transform: translateX(-50%); color: #dcd7ff; font: 13px 'Segoe UI',sans-serif; background: #191d28ed; border:1px solid #4a4260; padding: 12px 18px; border-radius:14px; box-shadow:0 8px 20px #0004; }
+</style>
+</head>
+<body>
+<div id="box"></div>
+<div id="hint">Arrastra para elegir el área · Esc para cancelar</div>
+<script>
+let s;
+const box = document.getElementById('box');
+onmousedown = e => { s = [e.clientX, e.clientY]; box.style.display = 'block'; };
+onmousemove = e => {
+  if (!s) return;
+  Object.assign(box.style, { left: Math.min(s[0], e.clientX) + 'px', top: Math.min(s[1], e.clientY) + 'px', width: Math.abs(e.clientX - s[0]) + 'px', height: Math.abs(e.clientY - s[1]) + 'px' });
+};
+onmouseup = e => {
+  if (!s) return;
+  const r = { x: Math.min(s[0], e.clientX) / innerWidth, y: Math.min(s[1], e.clientY) / innerHeight, w: Math.abs(e.clientX - s[0]) / innerWidth, h: Math.abs(e.clientY - s[1]) / innerHeight };
+  api.send('area', r.w > .02 && r.h > .02 ? r : null);
+};
+onkeydown = e => { if (e.key === 'Escape') api.send('area', null); };
+</script>
+</body>
+</html>

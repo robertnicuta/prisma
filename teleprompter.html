@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Teleprompter</title>
+<style>
+  body { margin: 0; height: 100vh; display: flex; flex-direction: column; overflow: hidden; background: #000; color: #fff; font-family: system-ui, sans-serif; }
+  #bar { -webkit-app-region: drag; display: flex; gap: 4px; align-items: center; padding: 6px; background: #1a1a1a; font-size: 12px; color: #aaa; }
+  #bar button { -webkit-app-region: no-drag; font: inherit; background: #333; color: #eee; border: 0; border-radius: 4px; padding: 3px 8px; cursor: pointer; }
+  .sp { flex: 1; }
+  #view { flex: 1; position: relative; overflow: hidden; }
+  #view::before { content: ''; position: absolute; left: 0; right: 0; top: 30%; border-top: 2px solid rgba(255, 64, 64, .6); }
+  #text { padding: 20px 28px; line-height: 1.4; white-space: pre-wrap; will-change: transform; }
+  #edit { flex: 1; display: none; padding: 16px; font: 18px system-ui, sans-serif; background: #111; color: #fff; border: 0; resize: none; outline: none; }
+  :root { color-scheme:dark; }
+  body { background:#11141c;color:#eef1fa;font-family:'Segoe UI',sans-serif; }
+  #bar { background:linear-gradient(135deg,#222838,#171b25);border-bottom:1px solid #394154;padding:10px;gap:7px;color:#aeb8cf; }
+  #bar button { height:31px;min-width:31px;padding:0 8px;border:1px solid #414b62;border-radius:9px;background:#252c3b;color:#dee3f2; }
+  #bar button:hover { background:#3a4358; }
+  #bar #play { color:#fff;background:#ff615f;border-color:#ff615f; }
+  #bar #editBtn { color:#c5bcff;background:#a394ff18;border-color:#a394ff35; }
+  #view::before { border-color:#a99bf4;opacity:.7; }
+  #edit { background:#151925;color:#e7ebf5;font:17px/1.8 'Segoe UI',sans-serif;padding:20px; }
+  #text { padding:24px 32px; }
+  #close { color:#aeb9d3; }
+</style>
+</head>
+<body data-window="Guion">
+<div id="bar">
+  <button id="play">&#9654;</button>
+  <button id="slower">&minus;</button><span id="speed">40</span><button id="faster">+</button>
+  <span class="sp"></span>
+  <button id="smaller">A&minus;</button><button id="bigger">A+</button>
+  <button id="dim" title="Menos opaco">&#9788;&minus;</button><button id="bright" title="Más opaco">&#9788;+</button>
+  <button id="editBtn" title="Editar guion">Editar</button>
+  <button id="close">&#10005;</button>
+</div>
+<textarea id="edit" placeholder="Pega aquí tu guion..."></textarea>
+<div id="view"><div id="text"></div></div>
+<script src="brand.js"></script>
+<script>
+const $ = id => document.getElementById(id);
+const cfg = Object.assign({ text: '', speed: 40, font: 40, opacity: .9 }, JSON.parse(localStorage.tp || '{}'));
+let playing = false, y = 0, last = 0;
+
+function apply() {
+  $('text').textContent = cfg.text; $('edit').value = cfg.text;
+  $('text').style.fontSize = cfg.font + 'px'; $('speed').textContent = cfg.speed;
+  api.invoke('tp-opacity', cfg.opacity);
+  localStorage.tp = JSON.stringify(cfg);
+}
+function loop(t) {
+  if (playing) y += cfg.speed * (t - last) / 1000;
+  last = t;
+  $('text').style.transform = `translateY(${-y}px)`;
+  requestAnimationFrame(loop);
+}
+function toggle() { playing = !playing; $('play').textContent = playing ? '❙❙' : '▶'; }
+function edit(on) {
+  $('edit').style.display = on ? 'block' : 'none'; $('view').style.display = on ? 'none' : 'block';
+  if (on) $('edit').focus(); else { cfg.text = $('edit').value; y = 0; apply(); }
+}
+window.hotkey = n => ({
+  'tp-toggle': toggle,
+  'tp-faster': () => { cfg.speed += 10; apply(); },
+  'tp-slower': () => { cfg.speed = Math.max(10, cfg.speed - 10); apply(); },
+})[n]?.();
+
+$('play').onclick = toggle;
+$('faster').onclick = () => hotkey('tp-faster');
+$('slower').onclick = () => hotkey('tp-slower');
+$('bigger').onclick = () => { cfg.font += 4; apply(); };
+$('smaller').onclick = () => { cfg.font = Math.max(16, cfg.font - 4); apply(); };
+$('bright').onclick = () => { cfg.opacity = Math.min(1, cfg.opacity + .1); apply(); };
+$('dim').onclick = () => { cfg.opacity = Math.max(.2, cfg.opacity - .1); apply(); };
+$('editBtn').onclick = () => edit($('edit').style.display !== 'block');
+$('close').onclick = () => window.close();
+$('view').onwheel = e => { y = Math.max(0, y + e.deltaY); };
+
+apply();
+if (!cfg.text) edit(true);
+requestAnimationFrame(loop);
+</script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+node_modules/
+.shortcut-icons/
+.transcription/
+test-output/
+__pycache__/
