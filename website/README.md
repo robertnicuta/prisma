@@ -21,7 +21,7 @@ npx vercel --prod
 
 `vercel.json` selecciona `dist` como único directorio público. No publica herramientas de captura, perfiles, pruebas ni credenciales. En Vercel, selecciona `website` como Root Directory si importas el repositorio completo. Framework: Other. Build: `npm run build`. Output: `dist`.
 
-El proyecto de Vercel es `prisma-studio` y está vinculado a la cuenta del propietario. La publicación permanente necesita una sesión autenticada de Vercel. Las credenciales `.vercel` y `.env*` están excluidas del repositorio y del directorio público.
+El proyecto de Vercel es `prisma-recorder`, con web pública en https://prisma-recorder.vercel.app, y está vinculado a la cuenta del propietario. La publicación permanente necesita una sesión autenticada de Vercel. Las credenciales `.vercel` y `.env*` están excluidas del repositorio y del directorio público.
 
 ## Contenido y demo
 
