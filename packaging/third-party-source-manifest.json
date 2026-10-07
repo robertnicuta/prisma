@@ -1,0 +1,227 @@
+[
+  {
+    "name": "nv-codec-headers",
+    "url": "https://github.com/FFmpeg/nv-codec-headers/archive/refs/tags/n13.0.19.0.tar.gz",
+    "file": "nv-codec-headers-n13.0.19.0.tar.gz",
+    "sha256": "86d15d1a7c0ac73a0eafdfc57bebfeba7da8264595bf531cf4d8db1c22940116",
+    "verification": "SHA256 pinned in PyAV-Org/pyav-ffmpeg 7.1.1-6 build recipe",
+    "size": 83385,
+    "status": "complete"
+  },
+  {
+    "name": "ffmpeg",
+    "url": "https://ffmpeg.org/releases/ffmpeg-7.1.1.tar.xz",
+    "file": "ffmpeg-7.1.1.tar.xz",
+    "sha256": "733984395e0dbbe5c046abda2dc49a5544e7e0e1e2366bba849222ae9e3a03b1",
+    "verification": "SHA256 pinned in PyAV-Org/pyav-ffmpeg 7.1.1-6 build recipe",
+    "size": 11019500,
+    "status": "complete"
+  },
+  {
+    "name": "gmp",
+    "url": "https://ftp.gnu.org/gnu/gmp/gmp-6.3.0.tar.xz",
+    "file": "gmp-6.3.0.tar.xz",
+    "sha256": "a3c2b80201b89e68616f4ad30bc66aee4927c3ce50e33929ca819d5c43538898",
+    "verification": "SHA256 pinned in PyAV-Org/pyav-ffmpeg 7.1.1-6 build recipe",
+    "size": 2094196,
+    "status": "complete"
+  },
+  {
+    "name": "aom",
+    "url": "https://storage.googleapis.com/aom-releases/libaom-3.11.0.tar.gz",
+    "file": "libaom-3.11.0.tar.gz",
+    "sha256": "cf7d103d2798e512aca9c6e7353d7ebf8967ee96fffe9946e015bb9947903e3e",
+    "verification": "SHA256 pinned in PyAV-Org/pyav-ffmpeg 7.1.1-6 build recipe",
+    "size": 5478757,
+    "status": "complete"
+  },
+  {
+    "name": "dav1d",
+    "url": "https://code.videolan.org/videolan/dav1d/-/archive/1.5.1/dav1d-1.5.1.tar.bz2",
+    "file": "dav1d-1.5.1.tar.bz2",
+    "sha256": "4eddffd108f098e307b93c9da57b6125224dc5877b1b3d157b31be6ae8f1f093",
+    "verification": "SHA256 pinned in PyAV-Org/pyav-ffmpeg 7.1.1-6 build recipe",
+    "size": 1214503,
+    "status": "complete"
+  },
+  {
+    "name": "libsvtav1",
+    "url": "https://gitlab.com/AOMediaCodec/SVT-AV1/-/archive/v3.0.1/SVT-AV1-v3.0.1.tar.bz2",
+    "file": "SVT-AV1-v3.0.1.tar.bz2",
+    "sha256": "f1d1ad8db551cd84ab52ae579b0e5086d8a0b7e47aea440e75907242a51b4cb9",
+    "verification": "SHA256 pinned in PyAV-Org/pyav-ffmpeg 7.1.1-6 build recipe",
+    "size": 10192205,
+    "status": "complete"
+  },
+  {
+    "name": "lame",
+    "url": "https://deb.debian.org/debian/pool/main/l/lame/lame_3.100.orig.tar.gz",
+    "file": "lame_3.100.orig.tar.gz",
+    "sha256": "ddfe36cab873794038ae2c1210557ad34857a4b6bdc515785d1da9e175b1da1e",
+    "verification": "SHA256 pinned in PyAV-Org/pyav-ffmpeg 7.1.1-6 build recipe",
+    "size": 1524133,
+    "status": "complete"
+  },
+  {
+    "name": "ogg",
+    "url": "https://downloads.xiph.org/releases/ogg/libogg-1.3.5.tar.gz",
+    "file": "libogg-1.3.5.tar.gz",
+    "sha256": "0eb4b4b9420a0f51db142ba3f9c64b333f826532dc0f48c6410ae51f4799b664",
+    "verification": "SHA256 pinned in PyAV-Org/pyav-ffmpeg 7.1.1-6 build recipe",
+    "status": "complete",
+    "size": 593071
+  },
+  {
+    "name": "opus",
+    "url": "https://github.com/xiph/opus/releases/download/v1.5.2/opus-1.5.2.tar.gz",
+    "file": "opus-1.5.2.tar.gz",
+    "sha256": "65c1d2f78b9f2fb20082c38cbe47c951ad5839345876e46941612ee87f9a7ce1",
+    "verification": "SHA256 pinned in PyAV-Org/pyav-ffmpeg 7.1.1-6 build recipe",
+    "size": 7839412,
+    "status": "complete"
+  },
+  {
+    "name": "speex",
+    "url": "https://downloads.xiph.org/releases/speex/speex-1.2.1.tar.gz",
+    "file": "speex-1.2.1.tar.gz",
+    "sha256": "4b44d4f2b38a370a2d98a78329fefc56a0cf93d1c1be70029217baae6628feea",
+    "verification": "SHA256 pinned in PyAV-Org/pyav-ffmpeg 7.1.1-6 build recipe",
+    "status": "complete",
+    "size": 1043278
+  },
+  {
+    "name": "twolame",
+    "url": "https://deb.debian.org/debian/pool/main/t/twolame/twolame_0.4.0.orig.tar.gz",
+    "file": "twolame_0.4.0.orig.tar.gz",
+    "sha256": "cc35424f6019a88c6f52570b63e1baf50f62963a3eac52a03a800bb070d7c87d",
+    "verification": "SHA256 pinned in PyAV-Org/pyav-ffmpeg 7.1.1-6 build recipe",
+    "size": 890908,
+    "status": "complete"
+  },
+  {
+    "name": "vorbis",
+    "url": "https://ftp.osuosl.org/pub/xiph/releases/vorbis/libvorbis-1.3.7.tar.xz",
+    "file": "libvorbis-1.3.7.tar.xz",
+    "sha256": "b33cc4934322bcbf6efcbacf49e3ca01aadbea4114ec9589d1b1e9d20f72954b",
+    "verification": "SHA256 pinned in PyAV-Org/pyav-ffmpeg 7.1.1-6 build recipe",
+    "status": "complete",
+    "size": 1203792
+  },
+  {
+    "name": "vpx",
+    "url": "https://github.com/webmproject/libvpx/archive/v1.15.1.tar.gz",
+    "file": "vpx-1.15.1.tar.gz",
+    "sha256": "6cba661b22a552bad729bd2b52df5f0d57d14b9789219d46d38f73c821d3a990",
+    "verification": "SHA256 pinned in PyAV-Org/pyav-ffmpeg 7.1.1-6 build recipe",
+    "size": 5630041,
+    "status": "complete"
+  },
+  {
+    "name": "png",
+    "url": "https://download.sourceforge.net/libpng/libpng-1.6.47.tar.gz",
+    "file": "libpng-1.6.47.tar.gz",
+    "sha256": "084115c62fe023e3d88cd78764a4d8e89763985ee4b4a085825f7a00d85eafbb",
+    "verification": "SHA256 pinned in PyAV-Org/pyav-ffmpeg 7.1.1-6 build recipe",
+    "size": 1561106,
+    "status": "complete"
+  },
+  {
+    "name": "webp",
+    "url": "https://github.com/webmproject/libwebp/archive/refs/tags/v1.5.0.tar.gz",
+    "file": "webp-1.5.0.tar.gz",
+    "sha256": "668c9aba45565e24c27e17f7aaf7060a399f7f31dba6c97a044e1feacb930f37",
+    "verification": "SHA256 pinned in PyAV-Org/pyav-ffmpeg 7.1.1-6 build recipe",
+    "size": 3821241,
+    "status": "complete"
+  },
+  {
+    "name": "openh264",
+    "url": "https://github.com/cisco/openh264/archive/refs/tags/v2.6.0.tar.gz",
+    "file": "openh264-2.6.0.tar.gz",
+    "sha256": "558544ad358283a7ab2930d69a9ceddf913f4a51ee9bf1bfb9e377322af81a69",
+    "verification": "SHA256 pinned in PyAV-Org/pyav-ffmpeg 7.1.1-6 build recipe",
+    "size": 60302243,
+    "status": "complete"
+  },
+  {
+    "name": "opencore-amr",
+    "url": "https://deb.debian.org/debian/pool/main/o/opencore-amr/opencore-amr_0.1.5.orig.tar.gz",
+    "file": "opencore-amr_0.1.5.orig.tar.gz",
+    "sha256": "2c006cb9d5f651bfb5e60156dbff6af3c9d35c7bbcc9015308c0aff1e14cd341",
+    "verification": "SHA256 pinned in PyAV-Org/pyav-ffmpeg 7.1.1-6 build recipe",
+    "size": 929581,
+    "status": "complete"
+  },
+  {
+    "name": "x264",
+    "url": "https://code.videolan.org/videolan/x264/-/archive/32c3b801191522961102d4bea292cdb61068d0dd/x264-32c3b801191522961102d4bea292cdb61068d0dd.tar.bz2",
+    "file": "x264-32c3b801191522961102d4bea292cdb61068d0dd.tar.bz2",
+    "sha256": "d7748f350127cea138ad97479c385c9a35a6f8527bc6ef7a52236777cf30b839",
+    "verification": "SHA256 pinned in PyAV-Org/pyav-ffmpeg 7.1.1-6 build recipe",
+    "size": 845986,
+    "status": "complete"
+  },
+  {
+    "name": "x265",
+    "url": "https://bitbucket.org/multicoreware/x265_git/downloads/x265_4.1.tar.gz",
+    "file": "x265_4.1.tar.gz",
+    "sha256": "a31699c6a89806b74b0151e5e6a7df65de4b49050482fe5ebf8a4379d7af8f29",
+    "verification": "SHA256 pinned in PyAV-Org/pyav-ffmpeg 7.1.1-6 build recipe",
+    "size": 1725279,
+    "status": "complete"
+  },
+  {
+    "name": "srt",
+    "url": "https://github.com/Haivision/srt/archive/refs/tags/v1.5.4.tar.gz",
+    "file": "srt-v1.5.4.tar.gz",
+    "sha256": "d0a8b600fe1b4eaaf6277530e3cfc8f15b8ce4035f16af4a5eb5d4b123640cdd",
+    "verification": "SHA256 pinned in PyAV-Org/pyav-ffmpeg 7.1.1-6 build recipe",
+    "size": 1743040,
+    "status": "complete"
+  },
+  {
+    "name": "libiconv",
+    "url": "https://ftp.gnu.org/gnu/libiconv/libiconv-1.18.tar.gz",
+    "file": "libiconv-1.18.tar.gz",
+    "verification": "Upstream GNU source; content SHA256 recorded",
+    "sha256": "3b08f5f4f9b4eb82f151a7040bfd6fe6c6fb922efe4b1659c66ea933276965e8",
+    "size": 5822590,
+    "status": "complete"
+  },
+  {
+    "name": "gcc",
+    "url": "https://ftp.gnu.org/gnu/gcc/gcc-15.1.0/gcc-15.1.0.tar.xz",
+    "file": "gcc-15.1.0.tar.xz",
+    "verification": "Upstream GNU source; content SHA256 recorded",
+    "sha256": "e2b09ec21660f01fecffb715e0120265216943f038d0e48a9868713e54f06cea",
+    "size": 98268344,
+    "status": "complete"
+  },
+  {
+    "name": "openssl",
+    "url": "https://github.com/openssl/openssl/releases/download/OpenSSL_1_1_1w/openssl-1.1.1w.tar.gz",
+    "file": "openssl-1.1.1w.tar.gz",
+    "verification": "Upstream OpenSSL source; content SHA256 recorded",
+    "sha256": "cf3098950cb4d853ad95c0841f1f9c6d3dc102dccfcacd521d93925208b76ac8",
+    "size": 9893384,
+    "status": "complete"
+  },
+  {
+    "name": "zlib",
+    "url": "https://zlib.net/fossils/zlib-1.3.1.tar.gz",
+    "file": "zlib-1.3.1.tar.gz",
+    "verification": "Upstream zlib source; content SHA256 recorded",
+    "sha256": "9a93b2b7dfdac77ceba5a558a580e74667dd6fede4585b91eefb60f03b72df23",
+    "size": 1512791,
+    "status": "complete"
+  },
+  {
+    "name": "pyav-ffmpeg-build-scripts-and-patches",
+    "url": "https://codeload.github.com/PyAV-Org/pyav-ffmpeg/zip/refs/tags/7.1.1-6",
+    "file": "pyav-ffmpeg-7.1.1-6-build-source.zip",
+    "sha256": "88a55eb0d73eb2fb11f1b9645d9b48d0c2592b207e74f204dcd3ccad7ce12c40",
+    "size": 21114,
+    "status": "complete",
+    "verification": "Tagged upstream build recipes and patches; content SHA256 recorded"
+  }
+]

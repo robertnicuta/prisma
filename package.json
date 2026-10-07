@@ -13,9 +13,47 @@
     "test:widget": "electron widget-test.js",
     "test:design": "electron design-test.js",
     "icon": "electron make-icon.js",
-    "setup:transcription": "powershell -NoProfile -ExecutionPolicy Bypass -File setup-transcription.ps1"
+    "setup:transcription": "powershell -NoProfile -ExecutionPolicy Bypass -File setup-transcription.ps1",
+    "dist:win": "electron-builder --win nsis --x64 --publish never",
+    "test:packaged": "node packaging/smoke-packaged.cjs"
   },
   "devDependencies": {
-    "electron": "^44.4.2"
+    "electron": "^44.4.2",
+    "electron-builder": "^26.15.3"
+  },
+  "build": {
+    "appId": "Prisma",
+    "productName": "Prisma",
+    "asar": true,
+    "directories": {"output": "release"},
+    "files": [
+      "main.js", "preload.js", "index.html", "app.css", "widget.html",
+      "teleprompter.html", "overlay.html", "brand.js", "brand.svg", "ui-icons.js",
+      "vdo-url.js", "vdo-preload.js", "transcription.js", "speaches.js",
+      "icon.ico", "icon.png", "LICENSE", "package.json"
+    ],
+    "extraResources": [
+      {"from": "packaging/python", "to": "transcription/python"},
+      {"from": "transcribe.py", "to": "transcription/transcribe.py"},
+      {"from": "packaging/THIRD-PARTY-NOTICES.txt", "to": "THIRD-PARTY-NOTICES.txt"},
+      {"from": "LICENSE", "to": "LICENSE.txt"}
+    ],
+    "win": {
+      "icon": "icon.ico",
+      "target": [{"target": "nsis", "arch": ["x64"]}],
+      "requestedExecutionLevel": "asInvoker",
+      "artifactName": "Prisma-Setup-${version}-Windows-x64.${ext}"
+    },
+    "nsis": {
+      "oneClick": true,
+      "perMachine": false,
+      "allowElevation": false,
+      "packElevateHelper": false,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Prisma",
+      "runAfterFinish": true,
+      "deleteAppDataOnUninstall": false
+    }
   }
 }

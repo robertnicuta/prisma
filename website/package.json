@@ -1,0 +1,1 @@
+{"name":"prisma-showcase","version":"1.0.0","private":true,"description":"Prisma product showcase","scripts":{"dev":"node serve.cjs","start":"node serve.cjs","check":"node check.cjs","build":"node check.cjs && node build.cjs"}}

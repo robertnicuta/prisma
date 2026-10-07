@@ -1,0 +1,14 @@
+[
+  {
+    "filename": "msvcp140.dll",
+    "sha256": "a4c2229bdc2a2a630acdc095b4d86008e5c3e3bc7773174354f3da4f5beb9cde",
+    "version": "14.40.33810.0",
+    "signature": "Valid Microsoft Authenticode"
+  },
+  {
+    "filename": "msvcp140_1.dll",
+    "sha256": "206c931bf90fdad8816de3b5e2ef80b2bcaa9406c89ecc05fe6fddffe251e982",
+    "version": "14.51.36247.0",
+    "signature": "Valid Microsoft Authenticode"
+  }
+]

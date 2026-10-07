@@ -1,0 +1,5 @@
+tools/
+.env*
+.vercel/
+node_modules/
+dist/

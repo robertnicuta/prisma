@@ -1,0 +1,584 @@
+{
+  "target": "Windows x64 / CPython 3.12",
+  "python_version": "3.12.10",
+  "python_download": "https://www.python.org/ftp/python/3.12.10/python-3.12.10-embed-amd64.zip",
+  "python_sha256": "4acbed6dd1c744b0376e3b1cf57ce906f9dc9e95e68824584c8099a63025a3c3",
+  "python_sbom": "https://www.python.org/ftp/python/3.12.10/python-3.12.10-embed-amd64.zip.spdx.json",
+  "wheels": [
+    {
+      "name": "anyio",
+      "version": "4.15.1",
+      "declared_license": "MIT",
+      "license_classifiers": [],
+      "project_urls": {
+        "Changelog": "https://anyio.readthedocs.io/en/stable/versionhistory.html",
+        "Documentation": "https://anyio.readthedocs.io/en/latest/",
+        "Issue tracker": "https://github.com/agronholm/anyio/issues",
+        "Source code": "https://github.com/agronholm/anyio"
+      },
+      "registry_metadata": "https://pypi.org/pypi/anyio/4.15.1/json",
+      "wheel": "anyio-4.15.1-py3-none-any.whl",
+      "download_url": "https://files.pythonhosted.org/packages/12/b8/4bd346e22b28902df4d651910f5242c28d84e4a5c2435ca5c3f797ed7e2e/anyio-4.15.1-py3-none-any.whl",
+      "sha256": "6152fdbbf9a77fdec97731721bebf7c4c44f7c29b424b0065826173efc7ed101",
+      "source_archives": [
+        "https://files.pythonhosted.org/packages/a9/d2/f4d173e22df740bc37b1db102b386ba719b66e95b0f0d751f556b387e6d2/anyio-4.15.1.tar.gz"
+      ],
+      "retained_license_files": [
+        "anyio-4.15.1.dist-info/licenses/LICENSE"
+      ]
+    },
+    {
+      "name": "av",
+      "version": "15.1.0",
+      "declared_license": "BSD-3-Clause",
+      "license_classifiers": [],
+      "project_urls": {
+        "Bug Tracker": "https://github.com/PyAV-Org/PyAV/discussions/new?category=4-bugs",
+        "Source Code": "https://github.com/PyAV-Org/PyAV",
+        "homepage": "https://pyav.basswood-io.com"
+      },
+      "registry_metadata": "https://pypi.org/pypi/av/15.1.0/json",
+      "wheel": "av-15.1.0-cp312-cp312-win_amd64.whl",
+      "download_url": "https://files.pythonhosted.org/packages/15/74/6f8e38a3b0aea5f28e72813672ff45b64615f2c69e6a4a558718c95edb9f/av-15.1.0-cp312-cp312-win_amd64.whl",
+      "sha256": "d5921aa45f4c1f8c1a8d8185eb347e02aa4c3071278a2e2dd56368d54433d643",
+      "source_archives": [
+        "https://files.pythonhosted.org/packages/e9/c3/83e6e73d1592bc54436eae0bc61704ae0cff0c3cfbde7b58af9ed67ebb49/av-15.1.0.tar.gz"
+      ],
+      "retained_license_files": [
+        "av-15.1.0.dist-info/licenses/",
+        "av-15.1.0.dist-info/licenses/AUTHORS.py",
+        "av-15.1.0.dist-info/licenses/AUTHORS.rst",
+        "av-15.1.0.dist-info/licenses/LICENSE.txt"
+      ]
+    },
+    {
+      "name": "certifi",
+      "version": "2026.7.22",
+      "declared_license": "MPL-2.0",
+      "license_classifiers": [
+        "License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)"
+      ],
+      "project_urls": {
+        "Homepage": "https://github.com/certifi/python-certifi",
+        "Source": "https://github.com/certifi/python-certifi"
+      },
+      "registry_metadata": "https://pypi.org/pypi/certifi/2026.7.22/json",
+      "wheel": "certifi-2026.7.22-py3-none-any.whl",
+      "download_url": "https://files.pythonhosted.org/packages/0b/a7/71ac2cff56fec219ed242bb11b8efb69fcc4bec75db06fb7bfe35de520e6/certifi-2026.7.22-py3-none-any.whl",
+      "sha256": "62f22742b58a1a33014a2b6b706588a8d7e2a88ae7bd1a6ebe8c992928483775",
+      "source_archives": [
+        "https://files.pythonhosted.org/packages/a3/c2/24167ea9858356b47a87a50d39908bfdb72ceeefe0041586e704e5376b3a/certifi-2026.7.22.tar.gz"
+      ],
+      "retained_license_files": [
+        "certifi-2026.7.22.dist-info/licenses/LICENSE"
+      ]
+    },
+    {
+      "name": "click",
+      "version": "8.5.0",
+      "declared_license": "BSD-3-Clause",
+      "license_classifiers": [],
+      "project_urls": {
+        "Changes": "https://click.palletsprojects.com/page/changes/",
+        "Chat": "https://discord.gg/pallets",
+        "Documentation": "https://click.palletsprojects.com/",
+        "Donate": "https://palletsprojects.com/donate",
+        "Source": "https://github.com/pallets/click/"
+      },
+      "registry_metadata": "https://pypi.org/pypi/click/8.5.0/json",
+      "wheel": "click-8.5.0-py3-none-any.whl",
+      "download_url": "https://files.pythonhosted.org/packages/58/50/6c0d534c5f134586a8e1ba4e330569e32f057e33372ae556463212fb4cd3/click-8.5.0-py3-none-any.whl",
+      "sha256": "255bc9599cf7748b4b1a446ccc735421bd08a2ae529a8b88597d3de5664ee360",
+      "source_archives": [
+        "https://files.pythonhosted.org/packages/c7/0e/7fa0ef50764b67090eca4114772a2abf8b6148198475e54c660b97caeee6/click-8.5.0.tar.gz"
+      ],
+      "retained_license_files": [
+        "click-8.5.0.dist-info/licenses/LICENSE.txt"
+      ]
+    },
+    {
+      "name": "colorama",
+      "version": "0.4.6",
+      "declared_license": "License :: OSI Approved :: BSD License",
+      "license_classifiers": [
+        "License :: OSI Approved :: BSD License"
+      ],
+      "project_urls": {
+        "Homepage": "https://github.com/tartley/colorama"
+      },
+      "registry_metadata": "https://pypi.org/pypi/colorama/0.4.6/json",
+      "wheel": "colorama-0.4.6-py2.py3-none-any.whl",
+      "download_url": "https://files.pythonhosted.org/packages/d1/d6/3965ed04c63042e047cb6a3e6ed1a63a35087b6a609aa3a15ed8ac56c221/colorama-0.4.6-py2.py3-none-any.whl",
+      "sha256": "4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6",
+      "source_archives": [
+        "https://files.pythonhosted.org/packages/d8/53/6f443c9a4a8358a93a6792e2acffb9d9d5cb0a5cfd8802644b7b1c9a02e4/colorama-0.4.6.tar.gz"
+      ],
+      "retained_license_files": [
+        "colorama-0.4.6.dist-info/licenses/LICENSE.txt"
+      ]
+    },
+    {
+      "name": "ctranslate2",
+      "version": "4.8.2",
+      "declared_license": "MIT",
+      "license_classifiers": [],
+      "project_urls": {
+        "Documentation": "https://opennmt.net/CTranslate2",
+        "Forum": "https://forum.opennmt.net",
+        "Gitter": "https://gitter.im/OpenNMT/CTranslate2",
+        "Homepage": "https://opennmt.net",
+        "Source": "https://github.com/OpenNMT/CTranslate2"
+      },
+      "registry_metadata": "https://pypi.org/pypi/ctranslate2/4.8.2/json",
+      "wheel": "ctranslate2-4.8.2-cp312-cp312-win_amd64.whl",
+      "download_url": "https://files.pythonhosted.org/packages/4e/23/e3b5322ff7368fcbed181ea4c209149416e7940b5b04971d5ee4084afe1a/ctranslate2-4.8.2-cp312-cp312-win_amd64.whl",
+      "sha256": "d94421d565d0de61c032998f737a18942b0f2bef40c0424b1846ec6f67300105",
+      "source_archives": [],
+      "retained_license_files": []
+    },
+    {
+      "name": "faster-whisper",
+      "version": "1.2.1",
+      "declared_license": "MIT",
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "project_urls": {
+        "Homepage": "https://github.com/SYSTRAN/faster-whisper"
+      },
+      "registry_metadata": "https://pypi.org/pypi/faster-whisper/1.2.1/json",
+      "wheel": "faster_whisper-1.2.1-py3-none-any.whl",
+      "download_url": "https://files.pythonhosted.org/packages/05/99/49ee85903dee060d9f08297b4a342e5e0bcfca2f027a07b4ee0a38ab13f9/faster_whisper-1.2.1-py3-none-any.whl",
+      "sha256": "79a66ad50688c0b794dd501dc340a736992a6342f7f95e5811be60b5224a26a7",
+      "source_archives": [],
+      "retained_license_files": [
+        "faster_whisper-1.2.1.dist-info/LICENSE"
+      ]
+    },
+    {
+      "name": "filelock",
+      "version": "4.0.12",
+      "declared_license": "MIT",
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "project_urls": {
+        "Documentation": "https://py-filelock.readthedocs.io",
+        "Homepage": "https://github.com/tox-dev/py-filelock",
+        "Source": "https://github.com/tox-dev/py-filelock",
+        "Tracker": "https://github.com/tox-dev/py-filelock/issues"
+      },
+      "registry_metadata": "https://pypi.org/pypi/filelock/4.0.12/json",
+      "wheel": "filelock-4.0.12-py3-none-any.whl",
+      "download_url": "https://files.pythonhosted.org/packages/da/a1/b047e1c486a2c66283633b7dbb73872ca16ca1ce6a426f70d4d037fc8e1c/filelock-4.0.12-py3-none-any.whl",
+      "sha256": "5f17ee83ecee8a6f3e389c75822fb70a1c2f0506b99438a6dffa1d56793588c8",
+      "source_archives": [
+        "https://files.pythonhosted.org/packages/53/e4/34efcb869715cf299e47d1ac7b2624d2bcb6f2d3dffc2f0abe8417f65ab2/filelock-4.0.12.tar.gz"
+      ],
+      "retained_license_files": [
+        "filelock-4.0.12.dist-info/licenses/LICENSE"
+      ]
+    },
+    {
+      "name": "flatbuffers",
+      "version": "25.12.19",
+      "declared_license": "Apache 2.0",
+      "license_classifiers": [
+        "License :: OSI Approved :: Apache Software License"
+      ],
+      "project_urls": {
+        "Documentation": "https://google.github.io/flatbuffers/",
+        "Homepage": "https://google.github.io/flatbuffers/",
+        "Source": "https://github.com/google/flatbuffers"
+      },
+      "registry_metadata": "https://pypi.org/pypi/flatbuffers/25.12.19/json",
+      "wheel": "flatbuffers-25.12.19-py2.py3-none-any.whl",
+      "download_url": "https://files.pythonhosted.org/packages/e8/2d/d2a548598be01649e2d46231d151a6c56d10b964d94043a335ae56ea2d92/flatbuffers-25.12.19-py2.py3-none-any.whl",
+      "sha256": "7634f50c427838bb021c2d66a3d1168e9d199b0607e6329399f04846d42e20b4",
+      "source_archives": [],
+      "retained_license_files": []
+    },
+    {
+      "name": "fsspec",
+      "version": "2026.9.0",
+      "declared_license": "BSD-3-Clause",
+      "license_classifiers": [],
+      "project_urls": {
+        "Changelog": "https://filesystem-spec.readthedocs.io/en/latest/changelog.html",
+        "Documentation": "https://filesystem-spec.readthedocs.io/en/latest/",
+        "Homepage": "https://github.com/fsspec/filesystem_spec"
+      },
+      "registry_metadata": "https://pypi.org/pypi/fsspec/2026.9.0/json",
+      "wheel": "fsspec-2026.9.0-py3-none-any.whl",
+      "download_url": "https://files.pythonhosted.org/packages/6c/c0/a98505f18594f1bce828bb159cec0fcf9860562f1a2c85913409fc8f3d9e/fsspec-2026.9.0-py3-none-any.whl",
+      "sha256": "8dd6e646e99ea382bd85f97a45e6b526a442d79423a7dc673f1e2756d05fcb5f",
+      "source_archives": [
+        "https://files.pythonhosted.org/packages/77/cd/9be253869fc42e764de7f3dedd6969af7d44ff9c3375214a3442a6f3fc08/fsspec-2026.9.0.tar.gz"
+      ],
+      "retained_license_files": [
+        "fsspec-2026.9.0.dist-info/licenses/LICENSE"
+      ]
+    },
+    {
+      "name": "h11",
+      "version": "0.16.0",
+      "declared_license": "MIT",
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "project_urls": {
+        "Homepage": "https://github.com/python-hyper/h11"
+      },
+      "registry_metadata": "https://pypi.org/pypi/h11/0.16.0/json",
+      "wheel": "h11-0.16.0-py3-none-any.whl",
+      "download_url": "https://files.pythonhosted.org/packages/04/4b/29cac41a4d98d144bf5f6d33995617b185d14b22401f75ca86f384e87ff1/h11-0.16.0-py3-none-any.whl",
+      "sha256": "63cf8bbe7522de3bf65932fda1d9c2772064ffb3dae62d55932da54b31cb6c86",
+      "source_archives": [
+        "https://files.pythonhosted.org/packages/01/ee/02a2c011bdab74c6fb3c75474d40b3052059d95df7e73351460c8588d963/h11-0.16.0.tar.gz"
+      ],
+      "retained_license_files": [
+        "h11-0.16.0.dist-info/licenses/LICENSE.txt"
+      ]
+    },
+    {
+      "name": "hf-xet",
+      "version": "1.7.0",
+      "declared_license": "Apache-2.0",
+      "license_classifiers": [
+        "License :: OSI Approved :: Apache Software License"
+      ],
+      "project_urls": {
+        "Documentation": "https://huggingface.co/docs/hub/xet/index",
+        "Homepage": "https://github.com/huggingface/xet-core",
+        "Issues": "https://github.com/huggingface/xet-core/issues",
+        "Repository": "https://github.com/huggingface/xet-core.git"
+      },
+      "registry_metadata": "https://pypi.org/pypi/hf-xet/1.7.0/json",
+      "wheel": "hf_xet-1.7.0-cp38-abi3-win_amd64.whl",
+      "download_url": "https://files.pythonhosted.org/packages/4d/59/b35106dfa71b6eef605dc88bd038fe99c7f86fb132a15b60d0bf2f235b2c/hf_xet-1.7.0-cp38-abi3-win_amd64.whl",
+      "sha256": "2b7bb5727889b0f2436dbaaad8fc4c3e66b8240d992716989e0c086b4278b1bc",
+      "source_archives": [
+        "https://files.pythonhosted.org/packages/9e/27/06d899ea7bd721d272f84aac98bdb238de98af4cc767a69056d967d68c71/hf_xet-1.7.0.tar.gz"
+      ],
+      "retained_license_files": [
+        "hf_xet-1.7.0.dist-info/licenses/LICENSE"
+      ]
+    },
+    {
+      "name": "httpcore",
+      "version": "1.0.9",
+      "declared_license": "BSD-3-Clause",
+      "license_classifiers": [
+        "License :: OSI Approved :: BSD License"
+      ],
+      "project_urls": {
+        "Documentation": "https://www.encode.io/httpcore",
+        "Homepage": "https://www.encode.io/httpcore/",
+        "Source": "https://github.com/encode/httpcore"
+      },
+      "registry_metadata": "https://pypi.org/pypi/httpcore/1.0.9/json",
+      "wheel": "httpcore-1.0.9-py3-none-any.whl",
+      "download_url": "https://files.pythonhosted.org/packages/7e/f5/f66802a942d491edb555dd61e3a9961140fd64c90bce1eafd741609d334d/httpcore-1.0.9-py3-none-any.whl",
+      "sha256": "2d400746a40668fc9dec9810239072b40b4484b640a8c38fd654a024c7a1bf55",
+      "source_archives": [
+        "https://files.pythonhosted.org/packages/06/94/82699a10bca87a5556c9c59b5963f2d039dbd239f25bc2a63907a05a14cb/httpcore-1.0.9.tar.gz"
+      ],
+      "retained_license_files": [
+        "httpcore-1.0.9.dist-info/licenses/LICENSE.md"
+      ]
+    },
+    {
+      "name": "httpx",
+      "version": "0.28.1",
+      "declared_license": "BSD-3-Clause",
+      "license_classifiers": [
+        "License :: OSI Approved :: BSD License"
+      ],
+      "project_urls": {
+        "Changelog": "https://github.com/encode/httpx/blob/master/CHANGELOG.md",
+        "Documentation": "https://www.python-httpx.org",
+        "Homepage": "https://github.com/encode/httpx",
+        "Source": "https://github.com/encode/httpx"
+      },
+      "registry_metadata": "https://pypi.org/pypi/httpx/0.28.1/json",
+      "wheel": "httpx-0.28.1-py3-none-any.whl",
+      "download_url": "https://files.pythonhosted.org/packages/2a/39/e50c7c3a983047577ee07d2a9e53faf5a69493943ec3f6a384bdc792deb2/httpx-0.28.1-py3-none-any.whl",
+      "sha256": "d909fcccc110f8c7faf814ca82a9a4d816bc5a6dbfea25d6591d6985b8ba59ad",
+      "source_archives": [
+        "https://files.pythonhosted.org/packages/b1/df/48c586a5fe32a0f01324ee087459e112ebb7224f646c0b5023f5e79e9956/httpx-0.28.1.tar.gz"
+      ],
+      "retained_license_files": [
+        "httpx-0.28.1.dist-info/licenses/LICENSE.md"
+      ]
+    },
+    {
+      "name": "huggingface_hub",
+      "version": "1.33.0",
+      "declared_license": "Apache-2.0",
+      "license_classifiers": [
+        "License :: OSI Approved :: Apache Software License"
+      ],
+      "project_urls": {
+        "Homepage": "https://github.com/huggingface/huggingface_hub"
+      },
+      "registry_metadata": "https://pypi.org/pypi/huggingface_hub/1.33.0/json",
+      "wheel": "huggingface_hub-1.33.0-py3-none-any.whl",
+      "download_url": "https://files.pythonhosted.org/packages/fc/16/963096d224b80909432dc16561a615fd33d2d13beef3ce4c63fa25e40867/huggingface_hub-1.33.0-py3-none-any.whl",
+      "sha256": "04e434b06e100eddbce9a6e817d72693a7884b10a79bd67ab48080d5c07eb899",
+      "source_archives": [
+        "https://files.pythonhosted.org/packages/25/2a/484d112c0d8fc5f665d7b65137ac9cdb2953c982391598c3597968a12ee7/huggingface_hub-1.33.0.tar.gz"
+      ],
+      "retained_license_files": [
+        "huggingface_hub-1.33.0.dist-info/licenses/LICENSE"
+      ]
+    },
+    {
+      "name": "idna",
+      "version": "3.20",
+      "declared_license": "BSD-3-Clause",
+      "license_classifiers": [],
+      "project_urls": {
+        "Changelog": "https://github.com/kjd/idna/blob/master/HISTORY.md",
+        "Issue tracker": "https://github.com/kjd/idna/issues",
+        "Source": "https://github.com/kjd/idna"
+      },
+      "registry_metadata": "https://pypi.org/pypi/idna/3.20/json",
+      "wheel": "idna-3.20-py3-none-any.whl",
+      "download_url": "https://files.pythonhosted.org/packages/58/a2/bb081bab032533a855d44de1d56f8e8426114ff1ba5d1f07a438a0a654f8/idna-3.20-py3-none-any.whl",
+      "sha256": "ab7ae7122974553370f0bdb919e1a960b2cd1bc1ef0276416d896db81c14582c",
+      "source_archives": [
+        "https://files.pythonhosted.org/packages/f5/08/8eea9d4b8302028f3abb2c0813953f7aec26d33b7a8960ed760e65ff29fa/idna-3.20.tar.gz"
+      ],
+      "retained_license_files": [
+        "idna-3.20.dist-info/licenses/LICENSE.md"
+      ]
+    },
+    {
+      "name": "numpy",
+      "version": "2.5.3",
+      "declared_license": "BSD-3-Clause AND 0BSD AND MIT AND Zlib AND CC0-1.0",
+      "license_classifiers": [],
+      "project_urls": {
+        "documentation": "https://numpy.org/doc/",
+        "download": "https://pypi.org/project/numpy/#files",
+        "homepage": "https://numpy.org",
+        "release notes": "https://numpy.org/doc/stable/release",
+        "source": "https://github.com/numpy/numpy",
+        "tracker": "https://github.com/numpy/numpy/issues"
+      },
+      "registry_metadata": "https://pypi.org/pypi/numpy/2.5.3/json",
+      "wheel": "numpy-2.5.3-cp312-cp312-win_amd64.whl",
+      "download_url": "https://files.pythonhosted.org/packages/3c/a1/accf6d4f0c80c5d9ba9735d6b1550e444180599f34dec69ca01360f717ad/numpy-2.5.3-cp312-cp312-win_amd64.whl",
+      "sha256": "0a59a421a32580a009e8a1751345bf829631b990dc1794b80514ab722b435def",
+      "source_archives": [
+        "https://files.pythonhosted.org/packages/13/01/11703282db468b85f6f7b8c7f22d058de5970d5c7e60a3a8aaa313c3de36/numpy-2.5.3.tar.gz"
+      ],
+      "retained_license_files": [
+        "numpy/ma/LICENSE",
+        "numpy/random/LICENSE.md",
+        "numpy/_core/include/numpy/random/LICENSE.txt",
+        "numpy-2.5.3.dist-info/licenses/",
+        "numpy-2.5.3.dist-info/licenses/numpy/",
+        "numpy-2.5.3.dist-info/licenses/LICENSE.txt",
+        "numpy-2.5.3.dist-info/licenses/numpy/fft/",
+        "numpy-2.5.3.dist-info/licenses/numpy/linalg/",
+        "numpy-2.5.3.dist-info/licenses/numpy/ma/",
+        "numpy-2.5.3.dist-info/licenses/numpy/random/",
+        "numpy-2.5.3.dist-info/licenses/numpy/_core/",
+        "numpy-2.5.3.dist-info/licenses/numpy/fft/pocketfft/",
+        "numpy-2.5.3.dist-info/licenses/numpy/fft/pocketfft/LICENSE.md",
+        "numpy-2.5.3.dist-info/licenses/numpy/linalg/lapack_lite/",
+        "numpy-2.5.3.dist-info/licenses/numpy/linalg/lapack_lite/LICENSE.txt",
+        "numpy-2.5.3.dist-info/licenses/numpy/ma/LICENSE",
+        "numpy-2.5.3.dist-info/licenses/numpy/random/src/",
+        "numpy-2.5.3.dist-info/licenses/numpy/random/LICENSE.md",
+        "numpy-2.5.3.dist-info/licenses/numpy/random/src/distributions/",
+        "numpy-2.5.3.dist-info/licenses/numpy/random/src/mt19937/",
+        "numpy-2.5.3.dist-info/licenses/numpy/random/src/pcg64/",
+        "numpy-2.5.3.dist-info/licenses/numpy/random/src/philox/",
+        "numpy-2.5.3.dist-info/licenses/numpy/random/src/sfc64/",
+        "numpy-2.5.3.dist-info/licenses/numpy/random/src/splitmix64/",
+        "numpy-2.5.3.dist-info/licenses/numpy/random/src/distributions/LICENSE.md",
+        "numpy-2.5.3.dist-info/licenses/numpy/random/src/mt19937/LICENSE.md",
+        "numpy-2.5.3.dist-info/licenses/numpy/random/src/pcg64/LICENSE.md",
+        "numpy-2.5.3.dist-info/licenses/numpy/random/src/philox/LICENSE.md",
+        "numpy-2.5.3.dist-info/licenses/numpy/random/src/sfc64/LICENSE.md",
+        "numpy-2.5.3.dist-info/licenses/numpy/random/src/splitmix64/LICENSE.md",
+        "numpy-2.5.3.dist-info/licenses/numpy/_core/include/",
+        "numpy-2.5.3.dist-info/licenses/numpy/_core/src/",
+        "numpy-2.5.3.dist-info/licenses/numpy/_core/include/numpy/",
+        "numpy-2.5.3.dist-info/licenses/numpy/_core/include/numpy/libdivide/",
+        "numpy-2.5.3.dist-info/licenses/numpy/_core/include/numpy/libdivide/LICENSE.txt",
+        "numpy-2.5.3.dist-info/licenses/numpy/_core/src/common/",
+        "numpy-2.5.3.dist-info/licenses/numpy/_core/src/highway/",
+        "numpy-2.5.3.dist-info/licenses/numpy/_core/src/multiarray/",
+        "numpy-2.5.3.dist-info/licenses/numpy/_core/src/npysort/",
+        "numpy-2.5.3.dist-info/licenses/numpy/_core/src/umath/",
+        "numpy-2.5.3.dist-info/licenses/numpy/_core/src/common/pythoncapi-compat/",
+        "numpy-2.5.3.dist-info/licenses/numpy/_core/src/common/pythoncapi-compat/COPYING",
+        "numpy-2.5.3.dist-info/licenses/numpy/_core/src/highway/LICENSE",
+        "numpy-2.5.3.dist-info/licenses/numpy/_core/src/multiarray/dragon4_LICENSE.txt",
+        "numpy-2.5.3.dist-info/licenses/numpy/_core/src/npysort/x86-simd-sort/",
+        "numpy-2.5.3.dist-info/licenses/numpy/_core/src/npysort/x86-simd-sort/LICENSE.md",
+        "numpy-2.5.3.dist-info/licenses/numpy/_core/src/umath/svml/",
+        "numpy-2.5.3.dist-info/licenses/numpy/_core/src/umath/svml/LICENSE"
+      ]
+    },
+    {
+      "name": "onnxruntime",
+      "version": "1.30.0",
+      "declared_license": "MIT License",
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "project_urls": {
+        "Download": "https://github.com/microsoft/onnxruntime/tags",
+        "Homepage": "https://onnxruntime.ai"
+      },
+      "registry_metadata": "https://pypi.org/pypi/onnxruntime/1.30.0/json",
+      "wheel": "onnxruntime-1.30.0-cp312-cp312-win_amd64.whl",
+      "download_url": "https://files.pythonhosted.org/packages/a6/13/0f1699f6de549c9324bc9112a2a85b14c517904cd11b562a654643b755a1/onnxruntime-1.30.0-cp312-cp312-win_amd64.whl",
+      "sha256": "f3501472571f1b1eee50e017851e7929f5ea37312d2d8c2494a19e8fc58b4a38",
+      "source_archives": [],
+      "retained_license_files": [
+        "onnxruntime/LICENSE"
+      ]
+    },
+    {
+      "name": "packaging",
+      "version": "26.3",
+      "declared_license": "Apache-2.0 OR BSD-2-Clause",
+      "license_classifiers": [],
+      "project_urls": {
+        "Documentation": "https://packaging.pypa.io/",
+        "Source": "https://github.com/pypa/packaging"
+      },
+      "registry_metadata": "https://pypi.org/pypi/packaging/26.3/json",
+      "wheel": "packaging-26.3-py3-none-any.whl",
+      "download_url": "https://files.pythonhosted.org/packages/63/34/ba1c580383c9eada3711951fef0795c80b829a078d72188184bcab9dd527/packaging-26.3-py3-none-any.whl",
+      "sha256": "d7193f7c8e4e93f444fde0262bf90af30e16fa0ad0ad44cb553c87339b23cd1c",
+      "source_archives": [
+        "https://files.pythonhosted.org/packages/7d/fa/3944b40b07da9ce895c0e6303a5ab7d53da063554f534556b134a54d6093/packaging-26.3.tar.gz"
+      ],
+      "retained_license_files": [
+        "packaging/licenses/__init__.py",
+        "packaging/licenses/_spdx.py",
+        "packaging-26.3.dist-info/licenses/LICENSE",
+        "packaging-26.3.dist-info/licenses/LICENSE.APACHE",
+        "packaging-26.3.dist-info/licenses/LICENSE.BSD"
+      ]
+    },
+    {
+      "name": "protobuf",
+      "version": "7.36.2",
+      "declared_license": "3-Clause BSD License",
+      "license_classifiers": [],
+      "project_urls": {
+        "Homepage": "https://developers.google.com/protocol-buffers/"
+      },
+      "registry_metadata": "https://pypi.org/pypi/protobuf/7.36.2/json",
+      "wheel": "protobuf-7.36.2-cp310-abi3-win_amd64.whl",
+      "download_url": "https://files.pythonhosted.org/packages/8a/55/b77bda4e5e5f5971fb51b07663694690e9afdb9402136c16a522bd621cad/protobuf-7.36.2-cp310-abi3-win_amd64.whl",
+      "sha256": "a300819d441e078a5608c0d3c709796bb548136058fda017ae51d425b44fd353",
+      "source_archives": [
+        "https://files.pythonhosted.org/packages/d9/89/5b8517baa72f84a67b8a307ba953c91057af618bf40bf676f3c03551f8f0/protobuf-7.36.2.tar.gz"
+      ],
+      "retained_license_files": [
+        "protobuf-7.36.2.dist-info/LICENSE"
+      ]
+    },
+    {
+      "name": "PyYAML",
+      "version": "6.0.3",
+      "declared_license": "MIT",
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "project_urls": {
+        "Bug Tracker": "https://github.com/yaml/pyyaml/issues",
+        "CI": "https://github.com/yaml/pyyaml/actions",
+        "Documentation": "https://pyyaml.org/wiki/PyYAMLDocumentation",
+        "Download": "https://pypi.org/project/PyYAML/",
+        "Homepage": "https://pyyaml.org/",
+        "Mailing lists": "http://lists.sourceforge.net/lists/listinfo/yaml-core",
+        "Source Code": "https://github.com/yaml/pyyaml"
+      },
+      "registry_metadata": "https://pypi.org/pypi/PyYAML/6.0.3/json",
+      "wheel": "pyyaml-6.0.3-cp312-cp312-win_amd64.whl",
+      "download_url": "https://files.pythonhosted.org/packages/86/bf/899e81e4cce32febab4fb42bb97dcdf66bc135272882d1987881a4b519e9/pyyaml-6.0.3-cp312-cp312-win_amd64.whl",
+      "sha256": "5fcd34e47f6e0b794d17de1b4ff496c00986e1c83f7ab2fb8fcfe9616ff7477b",
+      "source_archives": [
+        "https://files.pythonhosted.org/packages/05/8e/961c0007c59b8dd7729d542c61a4d537767a59645b82a0b521206e1e25c2/pyyaml-6.0.3.tar.gz"
+      ],
+      "retained_license_files": [
+        "pyyaml-6.0.3.dist-info/licenses/LICENSE"
+      ]
+    },
+    {
+      "name": "tokenizers",
+      "version": "0.23.2",
+      "declared_license": "License :: OSI Approved :: Apache Software License",
+      "license_classifiers": [
+        "License :: OSI Approved :: Apache Software License"
+      ],
+      "project_urls": {
+        "Homepage": "https://github.com/huggingface/tokenizers",
+        "Source": "https://github.com/huggingface/tokenizers"
+      },
+      "registry_metadata": "https://pypi.org/pypi/tokenizers/0.23.2/json",
+      "wheel": "tokenizers-0.23.2-cp310-abi3-win_amd64.whl",
+      "download_url": "https://files.pythonhosted.org/packages/db/f7/0a69ac6b82dbccf3f71add938a161c497952749294b8dd6dfe03a819dc40/tokenizers-0.23.2-cp310-abi3-win_amd64.whl",
+      "sha256": "2e96f5699d5249c9c64aa8412e044f727aae3a4098cf830f9901ec1afc361cde",
+      "source_archives": [
+        "https://files.pythonhosted.org/packages/18/1e/bc6587c5ab643b2e17776cace9070a2ae73549c86bffac9934a600bf3c31/tokenizers-0.23.2.tar.gz"
+      ],
+      "retained_license_files": []
+    },
+    {
+      "name": "tqdm",
+      "version": "4.70.1",
+      "declared_license": "MPL-2.0 AND MIT",
+      "license_classifiers": [],
+      "project_urls": {
+        "changelog": "https://tqdm.github.io/releases",
+        "homepage": "https://tqdm.github.io",
+        "repository": "https://github.com/tqdm/tqdm",
+        "wiki": "https://github.com/tqdm/tqdm/wiki"
+      },
+      "registry_metadata": "https://pypi.org/pypi/tqdm/4.70.1/json",
+      "wheel": "tqdm-4.70.1-py3-none-any.whl",
+      "download_url": "https://files.pythonhosted.org/packages/a7/03/921a3d3c75785aca9ebfbfcabfbc3a1be12e2ab5265deb026d55a5a3f83e/tqdm-4.70.1-py3-none-any.whl",
+      "sha256": "c293e525e6fef9c20e8728fd4612df02a0aa31bb5fe91ecd93e123b1b7bffa73",
+      "source_archives": [
+        "https://files.pythonhosted.org/packages/0d/ea/b2a5bd54b28a324dae8211928b2d730b6547500342c7e6c6dea08bd0a485/tqdm-4.70.1.tar.gz"
+      ],
+      "retained_license_files": [
+        "tqdm-4.70.1.dist-info/licenses/LICENCE"
+      ]
+    },
+    {
+      "name": "typing_extensions",
+      "version": "4.16.0",
+      "declared_license": "PSF-2.0",
+      "license_classifiers": [],
+      "project_urls": {
+        "Bug Tracker": "https://github.com/python/typing_extensions/issues",
+        "Changes": "https://github.com/python/typing_extensions/blob/main/CHANGELOG.md",
+        "Documentation": "https://typing-extensions.readthedocs.io/",
+        "Home": "https://github.com/python/typing_extensions",
+        "Q & A": "https://github.com/python/typing/discussions",
+        "Repository": "https://github.com/python/typing_extensions"
+      },
+      "registry_metadata": "https://pypi.org/pypi/typing_extensions/4.16.0/json",
+      "wheel": "typing_extensions-4.16.0-py3-none-any.whl",
+      "download_url": "https://files.pythonhosted.org/packages/49/d3/b8441a820a491ddfc024b0b0cf0393375b75ea13866d9c66727e54c2fc80/typing_extensions-4.16.0-py3-none-any.whl",
+      "sha256": "481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8",
+      "source_archives": [
+        "https://files.pythonhosted.org/packages/f6/cc/6253133b5bb138fc3306cebfbda2c520f545d36b5be2c7255cc528bb45d6/typing_extensions-4.16.0.tar.gz"
+      ],
+      "retained_license_files": [
+        "typing_extensions-4.16.0.dist-info/licenses/LICENSE"
+      ]
+    }
+  ]
+}

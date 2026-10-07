@@ -1,0 +1,185 @@
+PRISMA — AVISOS DE SOFTWARE DE TERCEROS
+
+Estos componentes conservan sus licencias originales. La licencia de Prisma
+no sustituye ni limita las licencias de sus dependencias de terceros.
+Los textos originales se conservan en resources/transcription/python.
+El motor de transcripción se ejecuta como proceso Python separado de Electron.
+
+PYTHON
+CPython 3.12.10 para Windows x64: PSF-2.0 y avisos incluidos en su LICENSE.txt.
+Fuente: https://www.python.org/downloads/release/python-31210/
+Binario: https://www.python.org/ftp/python/3.12.10/python-3.12.10-embed-amd64.zip
+SHA256: 4acbed6dd1c744b0376e3b1cf57ce906f9dc9e95e68824584c8099a63025a3c3
+Textos originales: python/LICENSE.txt y python/python-3.12.10.spdx.json.
+
+DEPENDENCIAS PYTHON
+Las versiones, artefactos exactos, hashes publicados por PyPI y fuentes están
+registrados en python/runtime-manifest.json. Todos los wheels se verificaron
+contra sus SHA256 publicados en los metadatos versionados de PyPI.
+
+anyio 4.15.1 — MIT
+Metadatos y fuentes: https://pypi.org/pypi/anyio/4.15.1/json
+Texto original: python/Lib/site-packages/anyio-4.15.1.dist-info/licenses/LICENSE
+
+av 15.1.0 — BSD-3-Clause
+Metadatos y fuentes: https://pypi.org/pypi/av/15.1.0/json
+Texto original: python/Lib/site-packages/av-15.1.0.dist-info/licenses/AUTHORS.py
+Texto original: python/Lib/site-packages/av-15.1.0.dist-info/licenses/AUTHORS.rst
+Texto original: python/Lib/site-packages/av-15.1.0.dist-info/licenses/LICENSE.txt
+
+certifi 2026.7.22 — MPL-2.0
+Metadatos y fuentes: https://pypi.org/pypi/certifi/2026.7.22/json
+Texto original: python/Lib/site-packages/certifi-2026.7.22.dist-info/licenses/LICENSE
+
+click 8.5.0 — BSD-3-Clause
+Metadatos y fuentes: https://pypi.org/pypi/click/8.5.0/json
+Texto original: python/Lib/site-packages/click-8.5.0.dist-info/licenses/LICENSE.txt
+
+colorama 0.4.6 — BSD-3-Clause
+Metadatos y fuentes: https://pypi.org/pypi/colorama/0.4.6/json
+Texto original: python/Lib/site-packages/colorama-0.4.6.dist-info/licenses/LICENSE.txt
+
+ctranslate2 4.8.2 — MIT
+Metadatos y fuentes: https://pypi.org/pypi/ctranslate2/4.8.2/json
+Texto original adicional: python/vendor-licenses/CTranslate2-LICENSE
+
+faster-whisper 1.2.1 — MIT
+Metadatos y fuentes: https://pypi.org/pypi/faster-whisper/1.2.1/json
+Texto original: python/Lib/site-packages/faster_whisper-1.2.1.dist-info/LICENSE
+
+filelock 4.0.12 — MIT
+Metadatos y fuentes: https://pypi.org/pypi/filelock/4.0.12/json
+Texto original: python/Lib/site-packages/filelock-4.0.12.dist-info/licenses/LICENSE
+
+flatbuffers 25.12.19 — Apache-2.0
+Metadatos y fuentes: https://pypi.org/pypi/flatbuffers/25.12.19/json
+Texto original adicional: python/vendor-licenses/Flatbuffers-LICENSE
+
+fsspec 2026.9.0 — BSD-3-Clause
+Metadatos y fuentes: https://pypi.org/pypi/fsspec/2026.9.0/json
+Texto original: python/Lib/site-packages/fsspec-2026.9.0.dist-info/licenses/LICENSE
+
+h11 0.16.0 — MIT
+Metadatos y fuentes: https://pypi.org/pypi/h11/0.16.0/json
+Texto original: python/Lib/site-packages/h11-0.16.0.dist-info/licenses/LICENSE.txt
+
+hf-xet 1.7.0 — Apache-2.0
+Metadatos y fuentes: https://pypi.org/pypi/hf-xet/1.7.0/json
+Texto original: python/Lib/site-packages/hf_xet-1.7.0.dist-info/licenses/LICENSE
+
+httpcore 1.0.9 — BSD-3-Clause
+Metadatos y fuentes: https://pypi.org/pypi/httpcore/1.0.9/json
+Texto original: python/Lib/site-packages/httpcore-1.0.9.dist-info/licenses/LICENSE.md
+
+httpx 0.28.1 — BSD-3-Clause
+Metadatos y fuentes: https://pypi.org/pypi/httpx/0.28.1/json
+Texto original: python/Lib/site-packages/httpx-0.28.1.dist-info/licenses/LICENSE.md
+
+huggingface_hub 1.33.0 — Apache-2.0
+Metadatos y fuentes: https://pypi.org/pypi/huggingface_hub/1.33.0/json
+Texto original: python/Lib/site-packages/huggingface_hub-1.33.0.dist-info/licenses/LICENSE
+
+idna 3.20 — BSD-3-Clause
+Metadatos y fuentes: https://pypi.org/pypi/idna/3.20/json
+Texto original: python/Lib/site-packages/idna-3.20.dist-info/licenses/LICENSE.md
+
+numpy 2.5.3 — BSD-3-Clause AND 0BSD AND MIT AND Zlib AND CC0-1.0
+Metadatos y fuentes: https://pypi.org/pypi/numpy/2.5.3/json
+Texto original: python/Lib/site-packages/numpy/ma/LICENSE
+Texto original: python/Lib/site-packages/numpy/random/LICENSE.md
+Texto original: python/Lib/site-packages/numpy/_core/include/numpy/random/LICENSE.txt
+Texto original: python/Lib/site-packages/numpy-2.5.3.dist-info/licenses/LICENSE.txt
+Texto original: python/Lib/site-packages/numpy-2.5.3.dist-info/licenses/numpy/fft/pocketfft/LICENSE.md
+Texto original: python/Lib/site-packages/numpy-2.5.3.dist-info/licenses/numpy/linalg/lapack_lite/LICENSE.txt
+Texto original: python/Lib/site-packages/numpy-2.5.3.dist-info/licenses/numpy/ma/LICENSE
+Texto original: python/Lib/site-packages/numpy-2.5.3.dist-info/licenses/numpy/random/LICENSE.md
+Texto original: python/Lib/site-packages/numpy-2.5.3.dist-info/licenses/numpy/random/src/distributions/LICENSE.md
+Texto original: python/Lib/site-packages/numpy-2.5.3.dist-info/licenses/numpy/random/src/mt19937/LICENSE.md
+Texto original: python/Lib/site-packages/numpy-2.5.3.dist-info/licenses/numpy/random/src/pcg64/LICENSE.md
+Texto original: python/Lib/site-packages/numpy-2.5.3.dist-info/licenses/numpy/random/src/philox/LICENSE.md
+Texto original: python/Lib/site-packages/numpy-2.5.3.dist-info/licenses/numpy/random/src/sfc64/LICENSE.md
+Texto original: python/Lib/site-packages/numpy-2.5.3.dist-info/licenses/numpy/random/src/splitmix64/LICENSE.md
+Texto original: python/Lib/site-packages/numpy-2.5.3.dist-info/licenses/numpy/_core/include/numpy/libdivide/LICENSE.txt
+Texto original: python/Lib/site-packages/numpy-2.5.3.dist-info/licenses/numpy/_core/src/common/pythoncapi-compat/COPYING
+Texto original: python/Lib/site-packages/numpy-2.5.3.dist-info/licenses/numpy/_core/src/highway/LICENSE
+Texto original: python/Lib/site-packages/numpy-2.5.3.dist-info/licenses/numpy/_core/src/multiarray/dragon4_LICENSE.txt
+Texto original: python/Lib/site-packages/numpy-2.5.3.dist-info/licenses/numpy/_core/src/npysort/x86-simd-sort/LICENSE.md
+Texto original: python/Lib/site-packages/numpy-2.5.3.dist-info/licenses/numpy/_core/src/umath/svml/LICENSE
+
+onnxruntime 1.30.0 — MIT
+Metadatos y fuentes: https://pypi.org/pypi/onnxruntime/1.30.0/json
+Texto original: python/Lib/site-packages/onnxruntime/LICENSE
+Avisos de componentes internos: python/Lib/site-packages/onnxruntime/ThirdPartyNotices.txt
+
+packaging 26.3 — Apache-2.0 OR BSD-2-Clause
+Metadatos y fuentes: https://pypi.org/pypi/packaging/26.3/json
+Texto original: python/Lib/site-packages/packaging-26.3.dist-info/licenses/LICENSE
+Texto original: python/Lib/site-packages/packaging-26.3.dist-info/licenses/LICENSE.APACHE
+Texto original: python/Lib/site-packages/packaging-26.3.dist-info/licenses/LICENSE.BSD
+
+protobuf 7.36.2 — BSD-3-Clause
+Metadatos y fuentes: https://pypi.org/pypi/protobuf/7.36.2/json
+Texto original: python/Lib/site-packages/protobuf-7.36.2.dist-info/LICENSE
+
+PyYAML 6.0.3 — MIT
+Metadatos y fuentes: https://pypi.org/pypi/PyYAML/6.0.3/json
+Texto original: python/Lib/site-packages/pyyaml-6.0.3.dist-info/licenses/LICENSE
+
+tokenizers 0.23.2 — Apache-2.0
+Metadatos y fuentes: https://pypi.org/pypi/tokenizers/0.23.2/json
+Texto original adicional: python/vendor-licenses/Tokenizers-LICENSE
+
+tqdm 4.70.1 — MPL-2.0 AND MIT
+Metadatos y fuentes: https://pypi.org/pypi/tqdm/4.70.1/json
+Texto original: python/Lib/site-packages/tqdm-4.70.1.dist-info/licenses/LICENCE
+
+typing_extensions 4.16.0 — PSF-2.0
+Metadatos y fuentes: https://pypi.org/pypi/typing_extensions/4.16.0/json
+Texto original: python/Lib/site-packages/typing_extensions-4.16.0.dist-info/licenses/LICENSE
+
+BIBLIOTECAS MULTIMEDIA INCLUIDAS CON PYAV
+PyAV 15.1.0 conserva BSD-3-Clause. Sus DLL multimedia conservan sus propias
+licencias. FFmpeg 7.1.1 declara LGPL versión 3 o posterior en avcodec_license().
+La compilación upstream también incluye x264 y x265, que conservan sus licencias
+GPL. Se incluyen las licencias LGPLv3 y GPLv3, además de los avisos originales
+extraídos de las fuentes de las bibliotecas.
+Textos: python/vendor-licenses/FFmpeg-COPYING.LGPLv3,
+python/vendor-licenses/FFmpeg-COPYING.GPLv3 y python/vendor-licenses/FFmpeg-LICENSE.md.
+Receta y parches exactos: PyAV-Org/pyav-ffmpeg, etiqueta 7.1.1-6.
+Fuente: https://github.com/PyAV-Org/pyav-ffmpeg/tree/7.1.1-6
+
+El archivo de fuentes complementario distribuido junto al instalador contiene
+las fuentes correspondientes de estas bibliotecas, los parches y las recetas
+de compilación. Su source-manifest.json identifica archivos, origen y SHA256.
+Este archivo de fuentes complementario es independiente del instalador.
+
+MICROSOFT VISUAL C++ RUNTIME
+El motor incluye MSVCP140.dll y MSVCP140_1.dll junto a VCRUNTIME140.dll y
+VCRUNTIME140_1.dll para ejecutarse sin una instalación de desarrollo.
+MSVCP140.dll procede del wheel NumPy registrado en runtime-manifest.json.
+MSVCP140_1.dll es el redistribuible de Microsoft presente en Windows; ambas
+firmas Authenticode de Microsoft fueron verificadas antes de incluirlas.
+Versiones y hashes: python/microsoft-runtime-manifest.json.
+Copyright Microsoft Corporation. Estos componentes conservan sus términos
+originales de Microsoft Distributable Code, descritos también en la sección
+Microsoft de python/LICENSE.txt. Son componentes para Windows y no forman
+parte de la licencia de Prisma ni de las bibliotecas de código abierto.
+
+AVISOS DE RUNTIMES INCLUIDOS POR CTRANSLATE2
+intel-openmp 2025.3.0 — Intel End User License Agreement for Developer Tools
+Fuente de los avisos originales: https://pypi.org/pypi/intel-openmp/2025.3.0/json
+Texto original: python/vendor-licenses/intel-openmp-2025.3.0-intel_openmp-2025.3.0.data__data__share__doc__compiler__licensing__openmp__third-party-programs.txt
+Texto original: python/vendor-licenses/intel-openmp-2025.3.0-intel_openmp-2025.3.0.dist-info__LICENSE.txt
+
+nvidia-cudnn-cu12 9.10.2.21 — LicenseRef-NVIDIA-Proprietary
+Fuente de los avisos originales: https://pypi.org/pypi/nvidia-cudnn-cu12/9.10.2.21/json
+Texto original: python/vendor-licenses/nvidia-cudnn-cu12-9.10.2.21-nvidia_cudnn_cu12-9.10.2.21.dist-info__licenses__License.txt
+
+Los avisos anteriores se conservaron desde los wheels oficiales de Intel y
+NVIDIA correspondientes a las mismas DLL presentes en CTranslate2; los hashes
+de los archivos DLL y los avisos se registran en python/vendor-license-downloads.json.
+La transcripción de Prisma utiliza CPU. Los componentes de GPU incluidos por
+el wheel upstream conservan las condiciones de NVIDIA.
+
+Los modelos de transcripción no forman parte de este instalador. Sus avisos
+de origen y licencia deben conservarse al descargarlos para su uso local.

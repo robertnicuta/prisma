@@ -513,13 +513,13 @@ $('vdoGenerate').onclick = () => {
 $('vdoCopy').onclick = async () => { await api.invoke('copy-text', mobileLink); $('vdoCopy').textContent = 'Copiado'; setTimeout(() => $('vdoCopy').textContent = 'Copiar enlace del móvil', 2000); };
 
 // main la llama con gesto de usuario (getDisplayMedia lo exige)
-async function init() {
+async function init({skipMedia = false} = {}) {
   cfg.dir ||= await api.invoke('default-dir'); save();
   $('dir').textContent = cfg.dir; $('areaOff').hidden = !cfg.area;
   await loadSources();
-  connectScreen().catch(err);
+  if (!skipMedia) connectScreen().catch(err);
   await loadDevices();
-  connectCam().catch(err); connectMic().catch(err);
+  if (!skipMedia) { connectCam().catch(err); connectMic().catch(err); }
   ui(); fitCanvas(); draw();
 }
 </script>

@@ -3,3 +3,7 @@ node_modules/
 .transcription/
 test-output/
 __pycache__/
+release/
+packaging/python/
+packaging/third-party-sources/
+packaging/blocked-runtime-lib/

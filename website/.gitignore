@@ -1,0 +1,6 @@
+dist/
+.vercel/
+tools/proof/
+
+.vercel
+.env*

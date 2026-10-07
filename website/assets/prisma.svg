@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+ <defs><linearGradient id="tile" x2="1" y2="1"><stop stop-color="#30374c"/><stop offset="1" stop-color="#141720"/></linearGradient><linearGradient id="ring" x2="1" y2="1"><stop stop-color="#d6d0ff"/><stop offset="1" stop-color="#9485ee"/></linearGradient><linearGradient id="dot" x2="1" y2="1"><stop stop-color="#ff8a7e"/><stop offset="1" stop-color="#ff555d"/></linearGradient></defs>
+ <rect x="16" y="16" width="480" height="480" rx="120" fill="url(#tile)"/><rect x="18" y="18" width="476" height="476" rx="118" fill="none" stroke="#59617a" stroke-width="4"/>
+ <path d="M256 111a145 145 0 0 1 145 145M401 256a145 145 0 0 1-145 145M256 401a145 145 0 0 1-145-145M111 256a145 145 0 0 1 145-145" fill="none" stroke="url(#ring)" stroke-width="32" stroke-linecap="round" stroke-dasharray="177 51"/>
+ <circle cx="256" cy="256" r="78" fill="url(#dot)"/><circle cx="256" cy="256" r="79" fill="none" stroke="#ffb9a8" stroke-opacity=".35" stroke-width="3"/>
+</svg>

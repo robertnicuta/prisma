@@ -1,0 +1,68 @@
+{
+  "application": "Prisma",
+  "method": "Electron BrowserWindow.webContents.capturePage",
+  "profile": "isolated",
+  "privateMediaCaptured": false,
+  "screenshots": [
+    {
+      "filename": "studio.png",
+      "description": "Real Prisma studio; no screen, camera, microphone, phone, or recording connected.",
+      "width": 1360,
+      "height": 900
+    },
+    {
+      "filename": "appearance.png",
+      "description": "Real image quality and camera bubble appearance controls.",
+      "width": 1360,
+      "height": 900
+    },
+    {
+      "filename": "recording.png",
+      "description": "Real zoom, click highlighting, countdown, and save controls; idle.",
+      "width": 1360,
+      "height": 900
+    },
+    {
+      "filename": "mobile.png",
+      "description": "Real mobile connection panel; no link generated and no stream connected.",
+      "width": 1360,
+      "height": 900
+    },
+    {
+      "filename": "transcript.png",
+      "description": "Real Whisper integrated transcription panel; empty, no fabricated transcription.",
+      "width": 1360,
+      "height": 900
+    },
+    {
+      "filename": "shortcuts.png",
+      "description": "Real global keyboard shortcuts and privacy note.",
+      "width": 1360,
+      "height": 900
+    },
+    {
+      "filename": "widget.png",
+      "description": "Real compact floating widget; idle with no camera attached.",
+      "width": 840,
+      "height": 104
+    },
+    {
+      "filename": "widget-settings.png",
+      "description": "Real floating widget settings; no private source or phone link.",
+      "width": 840,
+      "height": 658
+    },
+    {
+      "filename": "teleprompter.png",
+      "description": "Real teleprompter with an authored public demonstration script.",
+      "width": 600,
+      "height": 340
+    },
+    {
+      "filename": "studio-demo.png",
+      "description": "Real Prisma UI previewing an authored public canvas presentation labelled DEMOSTRACIÓN; idle, no real screen/camera/recording.",
+      "width": 1360,
+      "height": 900
+    }
+  ]
+}

@@ -4,7 +4,15 @@ Screen, camera and voice recorder with a floating widget, VDO.Ninja phone camera
 
 > **License:** [PolyForm Noncommercial 1.0.0](LICENSE). You can use and modify Prisma freely. You may **not** sell it or use it commercially.
 
-## Run
+## Download for Windows
+
+Download [Prisma Setup for Windows x64](https://github.com/robertnicuta/prisma/releases/download/v0.1.0/Prisma-Setup-0.1.0-Windows-x64.exe), open the installer, then open Prisma from its desktop or Start menu shortcut. No Node.js, terminal or separate Python installation is needed. The installer installs for the current user and keeps recordings and settings when uninstalled.
+
+The installer includes the local transcription runtime. Click **Prepare transcription** once to download the Whisper base model; Internet is required for that initial download. Models and settings live in your Windows user profile, outside the application installation directory.
+
+The current build is not code-signed. Recordings are saved as WebM when FFmpeg is not installed separately. See the release checksums and included third-party notices.
+
+## Run from source
 
 ```
 npm install
@@ -53,8 +61,12 @@ The widget stays on top of other windows. It has camera, timer, **Record / Stop*
 
 Click **Transcription** in the widget or **Transcribe** in the app. Pick the last recording or any file. Language can be auto-detected or fixed. It saves a `.transcript.txt` and, when timestamps exist, a `.transcript.srt` next to the video.
 
-- **Speaches (Docker)**: default engine, local server `http://127.0.0.1:8001` with `Systran/faster-whisper-small`. Only local servers are accepted (`localhost`, `127.0.0.1`, `::1`).
-- **Built-in Whisper**: works without Docker. Click **Prepare transcription** once (needs Python 3.9+; downloads the model). After that it works offline. Or run `npm run setup:transcription`.
+- **Speaches (Docker)**: default engine when running from source, local server `http://127.0.0.1:8001` with `Systran/faster-whisper-small`. Only local servers are accepted (`localhost`, `127.0.0.1`, `::1`).
+- **Built-in Whisper**: default in the Windows installer, works without Docker. Click **Prepare transcription** once to download the model. After that it works offline. Source builds need Python 3.9+ or `npm run setup:transcription`; the installer includes Python and the required libraries.
+
+## Build the Windows installer
+
+See [packaging/README.md](packaging/README.md) for runtime provenance and packaging. With the verified runtime in `packaging/python`, run `npm run dist:win`. Output is `release/Prisma-Setup-0.1.0-Windows-x64.exe`. `npm run test:packaged` checks the unpacked build with synthetic media and an isolated test profile.
 
 No API key is needed and no recording leaves your PC.
 

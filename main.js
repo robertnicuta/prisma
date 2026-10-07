@@ -6,12 +6,18 @@ const { viewerURL } = require('./vdo-url');
 const transcription = require('./transcription');
 const speaches = require('./speaches');
 const brand = require('./brand');
-const inheritedUserData=app.getPath('userData');
+const requestedUserData=app.commandLine.getSwitchValue('user-data-dir');
+const inheritedUserData=requestedUserData?path.resolve(requestedUserData):app.getPath('userData');
 const usingDefaultData=path.resolve(inheritedUserData).toLowerCase()===path.resolve(app.getPath('appData'),app.getName()).toLowerCase();
 const existingUserData=usingDefaultData?path.join(app.getPath('appData'),'loom-local'):inheritedUserData;
 app.setName(brand.name);app.setPath('userData',existingUserData);app.setPath('sessionData',existingUserData);
+if (app.isPackaged) transcription.configureRuntime({
+  root:path.join(app.getPath('userData'), '.transcription'),
+  python:path.join(process.resourcesPath, 'transcription', 'python', 'python.exe'),
+  script:path.join(process.resourcesPath, 'transcription', 'transcribe.py')
+});
 const transcriptionSettingsFile = () => path.join(app.getPath('userData'), 'transcription-settings.json');
-let transcriptionSettings = {engine:'speaches',url:'http://127.0.0.1:8001',model:'Systran/faster-whisper-small'};
+let transcriptionSettings = {engine:app.isPackaged?'builtin':'speaches',url:'http://127.0.0.1:8001',model:'Systran/faster-whisper-small'};
 
 app.commandLine.appendSwitch('disable-renderer-backgrounding');
 app.setAppUserModelId(brand.appId);
@@ -103,7 +109,7 @@ function toMp4(webm, fps) {
   const mp4 = webm.replace(/\.webm$/, '.mp4');
   return new Promise(resolve => {
     const p = spawn('ffmpeg', ['-y', '-i', webm, '-r', String(fps), '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '20',
-      '-pix_fmt', 'yuv420p', '-c:a', 'aac', '-b:a', '192k', '-movflags', '+faststart', mp4]);
+      '-pix_fmt', 'yuv420p', '-c:a', 'aac', '-b:a', '192k', '-movflags', '+faststart', mp4], {windowsHide:true});
     p.on('error', () => resolve(webm)); // sin ffmpeg en el PATH: se queda el webm
     p.on('close', code => { if (code === 0) { fs.unlinkSync(webm); resolve(mp4); } else resolve(webm); });
   });
@@ -114,7 +120,8 @@ app.whenReady().then(() => {
   const work=screen.getPrimaryDisplay().workArea;
   main = win('index.html', { width:Math.min(1280,work.width-40),height:Math.min(860,work.height-40),minWidth:940,minHeight:620,title:brand.name,backgroundColor:'#11141c' });
   main.webContents.on('did-finish-load', async () => {
-    await main.webContents.executeJavaScript('init()', true);
+    const skipMedia = !!process.env.LOOM_SMOKE && process.env.PRISMA_SYNTHETIC_MEDIA === '1';
+    await main.webContents.executeJavaScript(`init(${JSON.stringify({skipMedia})})`, true);
     if (process.env.LOOM_SMOKE) main.webContents.executeJavaScript(process.env.LOOM_SMOKE, true); // ver smoke.js
     openWidget();
   });
@@ -189,9 +196,14 @@ ipcMain.handle('transcription-settings', (event, settings) => {
   transcriptionSettings = {engine:settings.engine,url:speaches.localURL(settings.url),model:String(settings.model || '')};
   fs.mkdirSync(app.getPath('userData'),{recursive:true}); fs.writeFileSync(transcriptionSettingsFile(),JSON.stringify(transcriptionSettings));
 });
-ipcMain.handle('transcription-prepare', event => {
+ipcMain.handle('transcription-prepare', async event => {
   if (![main.webContents,widget?.webContents].includes(event.sender)) throw new Error('Origen no autorizado');
   if (setupJob || transcriptionJob) throw new Error('Ya hay una tarea de transcripción en curso.');
+  if (app.isPackaged) {
+    const job = transcription.prepare(message => main.webContents.send('transcription-progress', {message}));
+    setupJob = job.process;
+    try { return await job.promise; } finally { if (setupJob === job.process) setupJob = null; }
+  }
   return new Promise((resolve,reject) => {
     setupJob = spawn('powershell', ['-NoProfile','-ExecutionPolicy','Bypass','-File',path.join(__dirname,'setup-transcription.ps1')], {windowsHide:true});
     let tail = '';
@@ -293,7 +305,7 @@ ipcMain.handle('default-dir', () => path.join(app.getPath('videos'), brand.name)
 ipcMain.handle('choose-dir', async () => (await dialog.showOpenDialog(main, { properties: ['openDirectory'] })).filePaths[0] || null);
 ipcMain.handle('open-dir', (_, d) => { fs.mkdirSync(d, { recursive: true }); shell.openPath(d); });
 ipcMain.handle('on-top', (_, v) => main.setAlwaysOnTop(v, 'screen-saver'));
-ipcMain.handle('show-file', (_, f) => shell.showItemInFolder(f));
+ipcMain.handle('show-file', (_, f) => { if (!process.env.LOOM_SMOKE) shell.showItemInFolder(f); });
 
 ipcMain.handle('rec-start', (_, dir) => {
   fs.mkdirSync(dir, { recursive: true });
